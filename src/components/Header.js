@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <div>
-      <p> this is the header</p>
+      <p>maybe i don't need a header</p>
     </div>
   );
 }

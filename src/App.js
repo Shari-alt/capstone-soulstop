@@ -1,10 +1,11 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import Header from "./components/Header";
 import List from "./components/List";
 import Favourites from "./components/Favourites";
 import Checklist from "./components/Checklist";
+import Home from "./components/Home";
+import Header from "./components/Header";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Checklist />
             </Route>
           </Switch>
+          <Home />
         </main>
         <footer className="Footer">
           <Navigation />

@@ -6,6 +6,7 @@
   background-image: url("./images/Background-picture.png");
   background-size: cover;
   width: 100vw;
+  height: 100vh;
 }
 
 .Header {
