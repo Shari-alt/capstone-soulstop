@@ -1,5 +1,24 @@
 .App {
   text-align: center;
+  display: grid;
+  grid-template-columns: [width] 100vw;
+  grid-template-rows: [header] 100px [main] auto [footer] 70px;
+  background-image: url("./images/Background-picture.png");
+}
+
+.Header {
+  grid-column: width;
+  grid-row: header;
+}
+
+.Main {
+  grid-column: width;
+  grid-row: header;
+}
+
+.Footer {
+  grid-column: width;
+  grid-row: footer;
 }
 
 .App-logo {
@@ -26,13 +45,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
