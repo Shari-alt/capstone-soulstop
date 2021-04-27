@@ -25,8 +25,10 @@ function App() {
             <Route path="/checklist">
               <Checklist />
             </Route>
+            <Route path="/">
+              <Home />
+            </Route>
           </Switch>
-          <Home />
         </main>
         <footer className="Footer">
           <Navigation />

@@ -1,8 +1,14 @@
+*,
+::after,
+::before {
+  margin: 0;
+  box-sizing: border-box;
+}
 .App {
   text-align: center;
   display: grid;
   grid-template-columns: [width] 100vw;
-  grid-template-rows: [header] 100px [main] auto [footer] 70px;
+  grid-template-rows: [header] 35px [main] auto [footer] 70px;
   background-image: url("./images/Background-picture.png");
   background-size: cover;
   width: 100vw;

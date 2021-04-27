@@ -1,0 +1,12 @@
+.Title {
+  font-style: "Futura";
+  justify-self: center;
+}
+
+.KleineButtons {
+  display: flex;
+  margin-left: 30px;
+  margin-top: 40px;
+  justify-content: space-around;
+  margin-right: 30px;
+}
