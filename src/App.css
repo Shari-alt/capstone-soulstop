@@ -3,6 +3,9 @@
   display: grid;
   grid-template-columns: [width] 100vw;
   grid-template-rows: [header] 100px [main] auto [footer] 70px;
+  background-image: url("./images/Background-picture.png");
+  background-size: cover;
+  width: 100vw;
 }
 
 .Header {
@@ -13,7 +16,6 @@
 .Main {
   grid-column: width;
   grid-row: main;
-  background-image: url("./images/Background-picture.png");
 }
 
 .Footer {
