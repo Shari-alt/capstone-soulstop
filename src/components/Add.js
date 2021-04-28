@@ -1,9 +1,8 @@
 import Navigation from "./Navigation";
 
-export default function Favourites() {
+export default function Add() {
   return (
     <div>
-      <p> this are the Favourties</p>
       <Navigation />
     </div>
   );

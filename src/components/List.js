@@ -1,5 +1,6 @@
 import SmallButton from "./SmallButton";
 import "./List.css";
+import Navigation from "./Navigation";
 
 export default function List() {
   return (
@@ -10,6 +11,7 @@ export default function List() {
         <SmallButton text="Hinzufügen" />
         <SmallButton text="Filter" />
       </div>
+      <Navigation />
     </div>
   );
 }

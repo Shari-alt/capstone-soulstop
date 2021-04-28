@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../images/Logo.svg";
 import "./Home.css";
 import BigButton from "./BigButton";
@@ -7,9 +8,15 @@ export default function Home() {
     <div>
       <Logo className="Logo" />
       <div className="ButtonList">
-        <BigButton text="Klinik hinzufügen" />
-        <BigButton text="Deine Kliniken" NavLink to="/List" />
-        <BigButton text="Checklist" />
+        <NavLink to="/add">
+          <BigButton text="Klinik hinzufügen" />
+        </NavLink>
+        <NavLink to="/list">
+          <BigButton text="Deine Kliniken" />
+        </NavLink>
+        <NavLink to="/checklist">
+          <BigButton text="Checklist" />
+        </NavLink>
       </div>
     </div>
   );

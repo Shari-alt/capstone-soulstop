@@ -1,0 +1,21 @@
+.Navigation {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fcfcfc;
+  box-shadow: 6px 6px 10px rgba(152, 138, 138, 0.7) inset;
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px 10px 5px 5px;
+}
+
+/* box-shadow: -11px -11px 36px #d4d4d4, 11px 11px 36px #ffffff;
+
+box-shadow: -11px -11px 36px #d4d4d4, -11px 11px 36px #ffffff;
+
+box-shadow: 6px 6px 10px rgba(152, 138, 138, 0.7) inset; */
+
+box-shadow: -11px -11px 36px #d4d4d4, 11px 11px 36px #111111;
