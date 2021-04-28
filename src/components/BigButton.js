@@ -1,6 +1,6 @@
-import "./GroßerButton.css";
+import "./BigButton.css";
 
-export default function GroßerButton({ text }) {
+export default function BigButton({ text }) {
   return (
     <div>
       <button class="ActionButton"> {text} </button>
