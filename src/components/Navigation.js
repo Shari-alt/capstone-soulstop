@@ -6,7 +6,7 @@ import { ReactComponent as ChecklistIcon } from "../images/ChecklistIcon.svg";
 
 export default function Navigation() {
   return (
-    <div>
+    <div className="Navigation">
       <NavLink to="/list">
         <HomeIcon />
       </NavLink>
