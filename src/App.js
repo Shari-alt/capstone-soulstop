@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navigation from "./components/Navigation";
 import List from "./components/List";
 import Favourites from "./components/Favourites";
 import Checklist from "./components/Checklist";
 import Home from "./components/Home";
 import Header from "./components/Header";
+import Add from "./components/Add";
 
 function App() {
   return (
@@ -25,14 +25,15 @@ function App() {
             <Route path="/checklist">
               <Checklist />
             </Route>
+            <Route path="/add">
+              <Add />
+            </Route>
             <Route path="/">
               <Home />
             </Route>
           </Switch>
         </main>
-        <footer className="Footer">
-          <Navigation />
-        </footer>
+        <footer className="Footer"></footer>
       </div>
     </Router>
   );
