@@ -1,17 +1,26 @@
 import SmallButton from "./SmallButton";
 import "./List.css";
-import Navigation from "./Navigation";
+
+import ClinicCard from "./ClinicCard";
 
 export default function List() {
   return (
-    <div>
-      <h1 className="Title"> Meine Kliniken </h1>
+    <div className="Listlayout">
       <div className="SmallButtons">
         <SmallButton text="Suche" />
         <SmallButton text="Hinzufügen" />
         <SmallButton text="Filter" />
       </div>
-      <Navigation />
+      <div className="ClinicCardList">
+        <ClinicCard />
+        <ClinicCard />
+        <ClinicCard />
+        <ClinicCard />
+        <ClinicCard />
+        <ClinicCard />
+        <ClinicCard />
+        <ClinicCard />
+      </div>
     </div>
   );
 }

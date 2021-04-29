@@ -6,13 +6,24 @@ import Checklist from "./components/Checklist";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Add from "./components/Add";
+import Navigation from "./components/Navigation";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <header className="Header">
-          <Header />
+          <Switch>
+            <Route path="/list">
+              <Header text="Meine Kliniken" />
+            </Route>
+            <Route path="/favourites"></Route>
+            <Route path="/checklist">
+              <Header text="Checklist" />
+            </Route>
+            <Route path="/add"></Route>
+            <Route path="/"></Route>
+          </Switch>
         </header>
         <main className="Main">
           <Switch>
@@ -33,7 +44,12 @@ function App() {
             </Route>
           </Switch>
         </main>
-        <footer className="Footer"></footer>
+        <Switch>
+          <Route exact path="/"></Route>
+          <Route path="/*">
+            <Navigation />
+          </Route>
+        </Switch>
       </div>
     </Router>
   );

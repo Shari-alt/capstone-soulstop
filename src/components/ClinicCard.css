@@ -1,0 +1,42 @@
+.ClinicCard {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0px 0px 5px 2px rgba(226, 221, 221, 0.3);
+  height: 220px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  margin: 10px;
+  padding: 8px;
+}
+
+.ClinicPicture {
+  height: 100px;
+  width: 210px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.ClinicName {
+  margin: 5px;
+  justify-self: center;
+}
+
+.ClinicCardButtons {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  align-items: center;
+}
+
+.Edit {
+  position: relative;
+  left: -75px;
+}
+
+.Safe {
+  position: relative;
+  right: -75px;
+}

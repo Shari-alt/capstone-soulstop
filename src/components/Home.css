@@ -1,14 +1,14 @@
 .Logo {
   grid-column: main;
   position: relative;
-  top: 30px;
+  top: 65px;
 }
 
 .ButtonList {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  gap: 15px;
+  gap: 10px;
   position: relative;
-  top: 170px;
+  top: 220px;
 }

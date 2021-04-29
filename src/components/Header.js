@@ -1,3 +1,5 @@
-export default function Header() {
-  return <div></div>;
+import "./Header.css";
+
+export default function Header({ text }) {
+  return <h1 className="Title"> {text}</h1>;
 }
