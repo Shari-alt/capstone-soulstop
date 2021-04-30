@@ -17,7 +17,9 @@ function App() {
             <Route path="/list">
               <Header text="Meine Kliniken" />
             </Route>
-            <Route path="/favourites"></Route>
+            <Route path="/favourites">
+              <Header text="Favoriten" />
+            </Route>
             <Route path="/checklist">
               <Header text="Checklist" />
             </Route>
