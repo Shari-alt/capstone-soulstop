@@ -12,13 +12,6 @@ export default function Favourites() {
       </div>
       <div className="ClinicCardList">
         <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
       </div>
     </div>
   );
