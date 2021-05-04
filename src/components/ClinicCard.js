@@ -15,8 +15,8 @@ export default function ClinicCard({ name, place }) {
   return (
     <div className="ClinicCard">
       <img className="ClinicPicture" src={Download} alt="Clinicpicture" />
-      <h3 className="ClinicName"> Alibiname{name} </h3>
-      <p className="ClinicPlace"> Wonderland{place}</p>
+      <h3 className="ClinicName"> {name} </h3>
+      <p className="ClinicPlace"> {place}</p>
       <div className="ClinicCardButtons">
         <button className="Button_Edit">
           <Edit className="Edit" />

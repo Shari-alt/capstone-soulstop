@@ -5,7 +5,7 @@ import BigButton from "./BigButton";
 
 export default function Home() {
   return (
-    <div>
+    <div className="Home">
       <Logo className="Logo" />
       <div className="ButtonList">
         <NavLink to="/add">

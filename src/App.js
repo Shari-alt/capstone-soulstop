@@ -48,7 +48,7 @@ function App() {
         </main>
         <Switch>
           <Route exact path="/"></Route>
-          <Route path="/*">
+          <Route path={["/list", "/favourites", "/checklist", "/add"]}>
             <Navigation />
           </Route>
         </Switch>
