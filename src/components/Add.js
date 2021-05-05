@@ -1,5 +1,6 @@
 import Navigation from "./Navigation";
 import { useState } from "react";
+import Linkify from "react-linkify";
 
 export default function Add() {
   const [clinicName, setClinicName] = useState("");
@@ -216,13 +217,15 @@ export default function Add() {
         </div>
 
         <div className="Link">
-          <input
-            type="text"
-            value={link}
-            onChange={handleLink}
-            placeholder="Link zur Website"
-            className="LinkInput"
-          />
+          <Linkify>
+            <input
+              type="text"
+              value={link}
+              onChange={handleLink}
+              placeholder="Link zur Website"
+              className="LinkInput"
+            />
+          </Linkify>
         </div>
 
         <div className="Picture">
