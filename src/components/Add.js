@@ -3,6 +3,7 @@ import { useState } from "react";
 import Linkify from "react-linkify";
 import { ReactComponent as Button } from "../images/Button.svg";
 import SmallButton from "./SmallButton";
+import "./Add.css";
 
 export default function Add() {
   const [clinicName, setClinicName] = useState("");
@@ -25,6 +26,7 @@ export default function Add() {
   const [animals, setAnimals] = useState(false);
   const [room, setRoom] = useState(false);
   const [link, setLink] = useState("");
+  const [notes, setNotes] = useState("");
 
   function handleClinicName(event) {
     const { value } = event.target;
@@ -66,9 +68,14 @@ export default function Add() {
     setLink(value);
   }
 
+  function handleNotes(event) {
+    const { value } = event.target;
+    setNotes(value);
+  }
+
   return (
-    <div>
-      <article>
+    <div className="Addfield">
+      <article className="Formfield">
         <div>
           <label> </label>
           <input
@@ -78,7 +85,7 @@ export default function Add() {
             value={clinicName}
             onChange={handleClinicName}
             className="InputClinicName"
-            placeholder="Wie heißt die Klinik?"
+            placeholder="Name der Klinik"
             required
           />
         </div>
@@ -92,7 +99,7 @@ export default function Add() {
             value={place}
             onChange={handlePlace}
             className="InputPlace"
-            placeholder="Land, Bundesland oder Stadt eingeben"
+            placeholder="Land, Bundesland oder Stadt "
             required
           />
         </div>
@@ -228,6 +235,15 @@ export default function Add() {
               className="LinkInput"
             />
           </Linkify>
+        </div>
+        <div className="Notes">
+          <input
+            type="text"
+            value={notes}
+            onChange={handleNotes}
+            placeholder="Platz für Notizen"
+            className="NotesInput"
+          />
         </div>
 
         <div className="Picture">

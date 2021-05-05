@@ -1,0 +1,52 @@
+.Addfield {
+  display: flex;
+  justify-content: center;
+}
+
+.Formfield {
+  background-color: #ffffff;
+  margin-top: 10px;
+  box-shadow: 0px 0px 5px 8px rgba(226, 221, 221, 0.3);
+  width: 260px;
+  border-radius: 15px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+  height: 100vh;
+  width: 80%;
+}
+
+::placeholder {
+  color: black;
+  opacity: 1;
+  font-size: 1.5em;
+  align-self: center;
+}
+.InputClinicName {
+  justify-self: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 267px;
+  padding: 3px;
+  margin: 10px;
+  color: black;
+  border: none;
+  border-radius: 15px;
+  background-color: #e2ecf8;
+  height: 47px;
+  text-align: center;
+}
+
+.InputPlace {
+  width: 267px;
+  padding: 17px;
+  border-radius: 15px;
+  border: none;
+  background-color: #e2ecf8;
+  height: 47px;
+  text-align: center;
+  margin-top: 8px;
+}

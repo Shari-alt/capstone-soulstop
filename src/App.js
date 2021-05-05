@@ -23,7 +23,12 @@ function App() {
             <Route path="/checklist">
               <Header text="Checklist" />
             </Route>
-            <Route path="/add"></Route>
+            <Route
+              path="/add"
+              render={(props) =>
+                props.location.pathname !== "/add" && <Header />
+              }
+            ></Route>
             <Route path="/"></Route>
           </Switch>
         </header>
