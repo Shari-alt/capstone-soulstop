@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 .App {
-  text-align: center;
   display: grid;
   grid-template-columns: [width] 100vw;
   grid-template-rows: [header] 100px [main] auto [footer] 70px;

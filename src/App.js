@@ -12,21 +12,20 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="Header">
-          <Switch>
-            <Route path="/list">
-              <Header text="Meine Kliniken" />
-            </Route>
-            <Route path="/favourites">
-              <Header text="Favoriten" />
-            </Route>
-            <Route path="/checklist">
-              <Header text="Checklist" />
-            </Route>
-            <Route path="/add"></Route>
-            <Route path="/"></Route>
-          </Switch>
-        </header>
+        <Switch>
+          <Route path="/list">
+            <Header text="Meine Kliniken" />
+          </Route>
+          <Route path="/favourites">
+            <Header text="Favoriten" />
+          </Route>
+          <Route path="/checklist">
+            <Header text="Checklist" />
+          </Route>
+
+          <Route path="/"></Route>
+        </Switch>
+
         <main className="Main">
           <Switch>
             <Route path="/list">

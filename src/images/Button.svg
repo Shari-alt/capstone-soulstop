@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="81" height="79" viewBox="0 0 81 79">
+  <defs>
+    <filter id="_2936254c667d971a0c421acc126ff1c1" x="0" y="0" width="81" height="79" filterUnits="userSpaceOnUse">
+      <feOffset dy="-5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="_2936254c667d971a0c421acc126ff1c1-2" x="0" y="0" width="81" height="79" filterUnits="userSpaceOnUse">
+      <feOffset dy="-5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Komponente_4_2" data-name="Komponente 4 – 2" transform="translate(7.5 12.5)">
+    <g transform="matrix(1, 0, 0, 1, -7.5, -12.5)" filter="url(#_2936254c667d971a0c421acc126ff1c1)">
+      <g id="_2936254c667d971a0c421acc126ff1c1-3" data-name="2936254c667d971a0c421acc126ff1c1" transform="translate(7.5 12.5)" fill="#d7d1c9" stroke="#fff" stroke-width="5">
+        <ellipse cx="33" cy="32" rx="33" ry="32" stroke="none"/>
+        <ellipse cx="33" cy="32" rx="30.5" ry="29.5" fill="none"/>
+      </g>
+    </g>
+  </g>
+  <g id="Komponente_4_1" data-name="Komponente 4 – 1" transform="translate(7.5 12.5)">
+    <g transform="matrix(1, 0, 0, 1, -7.5, -12.5)" filter="url(#_2936254c667d971a0c421acc126ff1c1-2)">
+      <g id="_2936254c667d971a0c421acc126ff1c1-4" data-name="2936254c667d971a0c421acc126ff1c1" transform="translate(7.5 12.5)" fill="none" stroke="#fff" stroke-width="5">
+        <ellipse cx="33" cy="32" rx="33" ry="32" stroke="none"/>
+        <ellipse cx="33" cy="32" rx="30.5" ry="29.5" fill="none"/>
+      </g>
+    </g>
+  </g>
+  <path id="Pfad_14" data-name="Pfad 14" d="M14.109-17.487,26.351-8.2l17.3-29.149" transform="matrix(0.995, 0.105, -0.105, 0.995, 9.395, 61.133)" fill="none" stroke="#707070" stroke-width="8"/>
+</svg>

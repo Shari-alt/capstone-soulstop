@@ -1,0 +1,237 @@
+.Addfield {
+  display: flex;
+  justify-content: center;
+}
+
+.Formfield {
+  background-color: #ffffff;
+  margin-top: 10px;
+  box-shadow: 0px 0px 5px 8px rgba(226, 221, 221, 0.3);
+  width: 260px;
+  border-radius: 15px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  padding-bottom: 40px;
+  margin-top: 20px;
+  height: 100vh;
+  width: 80%;
+}
+
+::placeholder {
+  color: black;
+  opacity: 1;
+  font-size: 1.2em;
+  align-self: center;
+  font-weight: 600;
+}
+
+input[type="text"] {
+  box-shadow: 8px 8px 8px #cbced1, inset -8px -8px 8px #e2ecf8;
+}
+
+.InputClinicName {
+  width: 267px;
+  padding: 3px;
+  margin: 10px;
+  color: black;
+  border: none;
+  border-radius: 15px;
+  background-color: #e2ecf8;
+  font-size: 17px;
+  height: 47px;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.InputPlace {
+  width: 267px;
+  padding: 17px;
+  border-radius: 15px;
+  border: none;
+  background-color: #e2ecf8;
+  height: 47px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.InsuranceSelect {
+  border: none;
+  border-radius: 15px;
+  background-color: #e2ecf8;
+  box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
+  margin-top: 18px;
+  padding: 15px;
+  width: 267px;
+  height: 90px;
+  justify-content: space-between;
+  width: 267px;
+}
+
+select {
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 15px;
+  font-size: 1em;
+  padding: 0.6em 1.4em 0.5em 4.5em;
+  background-color: ##e2ecf8;
+  appearance: none;
+  display: block;
+}
+
+.Therapy {
+  border: none;
+  border-radius: 15px;
+  background-color: #e2ecf8;
+  box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
+  margin-top: 18px;
+  padding: 15px;
+  width: 267px;
+  height: auto;
+}
+
+.FormTitle {
+  font-size: 1.3em;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.TherapyCheckbox {
+  display: grid;
+  grid-template-columns: [leftCol] 80px [centerCol] 80px [secondCol] 80px;
+  grid-template-rows: auto;
+  column-gap: 2px;
+  text-align: left !important;
+}
+
+.LeftCol {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.CenterCol {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.RightCol {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.Checkbox {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.TextSonstiges {
+  width: 100%;
+  grid-area: 1 / 3 / 2 / 4;
+  font-size: 10px;
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  box-shadow: none !important;
+}
+
+.Visitors,
+.Children,
+.Animals,
+.Room {
+  border: none;
+  border-radius: 15px;
+  background-color: #e2ecf8;
+  box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
+  margin-top: 18px;
+  width: 170px;
+  height: 30px;
+}
+.Visitors {
+  padding: 4px 15px 4px 15px;
+}
+
+.Children {
+  padding: 2px 10px 2px 10px;
+}
+
+.Animals {
+  padding: 4px 15px 4px 15px;
+}
+
+.Room {
+  padding: 4px 15px 4px 15px;
+}
+
+.Link {
+  background-color: #e2ecf8;
+  height: 50px;
+  width: 267px;
+  padding: 10px;
+  padding-top: 12px;
+  border-radius: 15px;
+  margin-top: 18px;
+  box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
+}
+
+.LinkInput {
+  width: 247px;
+  height: 25px;
+  padding: 3px;
+  border: none;
+  box-shadow: none !important;
+  border-radius: 15px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.Link {
+  flex: wrap;
+}
+
+.Notes {
+  background-color: #e2ecf8;
+  height: 200px;
+  width: 267px;
+  padding: 10px;
+  border-radius: 15px;
+  margin-top: 18px;
+  box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
+}
+
+.NotesInput {
+  width: 247px;
+  padding: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  border: none;
+  border-radius: 15px;
+  background-color: #ffffff;
+  font-size: 13px;
+  height: 80px;
+  line-break: loose;
+}
+
+.Picture {
+  background-color: #e2ecf8;
+  height: 200px;
+  width: 267px;
+  padding: 80px;
+  border-radius: 15px;
+  margin-top: 18px;
+  box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
+}
+
+.PctureUpload {
+  border: 4px dotted black;
+  padding: 5px;
+}
+
+.FormButton {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1px !important;
+  margin: 18px;
+}
