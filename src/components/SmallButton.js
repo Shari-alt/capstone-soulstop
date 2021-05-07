@@ -1,9 +1,12 @@
 import "./SmallButton.css";
 
-export default function SmallButton({ text }) {
+export default function SmallButton({ text, onClick }) {
   return (
     <div>
-      <button className="SmallButton"> {text} </button>
+      <button className="SmallButton" onClick={onClick}>
+        {" "}
+        {text}{" "}
+      </button>
     </div>
   );
 }
