@@ -101,7 +101,7 @@ select {
 
 .TherapyCheckbox {
   display: grid;
-  grid-template-columns: [firstCol] 80px [centerCol] 80px [leftCol] 80px;
+  grid-template-columns: [leftCol] 80px [centerCol] 80px [secondCol] 80px;
   grid-template-rows: auto;
   column-gap: 2px;
   text-align: left !important;
@@ -134,48 +134,32 @@ select {
   box-shadow: none !important;
 }
 
-.Visitors {
-  border: none;
-  border-radius: 15px;
-  background-color: #e2ecf8;
-  box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
-  margin-top: 18px;
-  padding: 4px 15px 4px 15px;
-  width: 170px;
-  height: 30px;
-}
-
-.Children {
-  border: none;
-  border-radius: 15px;
-  background-color: #e2ecf8;
-  box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
-  margin-top: 18px;
-  padding: 2px 10px 2px 10px;
-  width: 170px;
-  height: 30px;
-}
-
-.Animals {
-  border: none;
-  border-radius: 15px;
-  background-color: #e2ecf8;
-  box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
-  margin-top: 18px;
-  padding: 4px 15px 4px 15px;
-  width: 170px;
-  height: 30px;
-}
-
+.Visitors,
+.Children,
+.Animals,
 .Room {
   border: none;
   border-radius: 15px;
   background-color: #e2ecf8;
   box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
   margin-top: 18px;
-  padding: 4px 15px 4px 15px;
   width: 170px;
   height: 30px;
+}
+.Visitors {
+  padding: 4px 15px 4px 15px;
+}
+
+.Children {
+  padding: 2px 10px 2px 10px;
+}
+
+.Animals {
+  padding: 4px 15px 4px 15px;
+}
+
+.Room {
+  padding: 4px 15px 4px 15px;
 }
 
 .Link {
