@@ -1,8 +1,23 @@
-import Navigation from "./Navigation";
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
-import Linkify from "react-linkify";
-import { ReactComponent as Button } from "../images/Button.svg";
-import SmallButton from "./SmallButton";
 import "./Form.css";
-import { addItemToLocalStorage } from "./Services/ClinicStorage";
+import { getSingleClinicFromLocalStorage } from "../components/Services/ClinicStorage";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
+export default function SingleClinic() {
+  const [singleClinic, setSingleClinic] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    const myClinics = getSingleClinicFromLocalStorage(id);
+    setSingleClinic(myClinics);
+    console.log(myClinics);
+  }, [id]);
+
+  return (
+    <div className="Addfield" key={id}>
+      <div>
+        <p>{singleClinic.id}</p>
+      </div>
+    </div>
+  );
+}

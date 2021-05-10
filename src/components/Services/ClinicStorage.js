@@ -10,14 +10,13 @@ export function addItemToLocalStorage(newClinic) {
 //Get Item
 export function getItemsFromLocalStorage() {
   const newClinic = JSON.parse(localStorage.getItem("clinicData")) || [];
-  console.log(newClinic);
   return newClinic;
 }
 
 //Get single Trip
 export function getSingleClinicFromLocalStorage(id) {
-  const clinics = getItemsFromLocalStorage();
-  const singleClinic = clinics.find((newClinic) => {
+  const myClinics = getItemsFromLocalStorage();
+  const singleClinic = myClinics.find((newClinic) => {
     return newClinic.id === id;
   });
   return singleClinic;
@@ -25,9 +24,9 @@ export function getSingleClinicFromLocalStorage(id) {
 
 //Edit Single from Local Storage
 export function editSingleClinicFromLocalStorage(id, updatedClinic) {
-  const clinics = editSingleClinicFromLocalStorage();
+  const myClinics = editSingleClinicFromLocalStorage();
 
-  const updatedClinics = clinics.map((newClinic) => {
+  const updatedClinics = myClinics.map((newClinic) => {
     if (newClinic.id === id) {
       return { ...newClinic, ...updatedClinic };
     } else {

@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Header from "./components/Header";
 import Add from "./components/Add";
 import Navigation from "./components/Navigation";
+import SingleClinic from "./components/SingleClinic";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route path="/add">
               <Add />
+            </Route>
+            <Route path="/singleclinic/:id">
+              <SingleClinic />
             </Route>
             <Route path="/">
               <Home />
