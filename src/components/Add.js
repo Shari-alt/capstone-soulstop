@@ -95,17 +95,7 @@ export default function Add() {
       link: link,
       notes: notes,
     });
-
-    setClinicName("");
-    setPlace("");
-    setInsurance("");
-    setTherapy("");
-    setVisitors(false);
-    setChildren(false);
-    setAnimals(false);
-    setRoom(false);
-    setLink("");
-    setNotes("");
+    resetForm();
   }
 
   return (
@@ -159,8 +149,10 @@ export default function Add() {
               <div className="Checkbox">
                 <input
                   type="checkbox"
-                  value={therapy.Kunst}
-                  onChange={(e) => setTherapy({ Kunst: e.target.value })}
+                  checked={therapy.Kunst}
+                  onChange={(e) =>
+                    setTherapy({ ...therapy, Kunst: e.target.checked })
+                  }
                 />
                 <label for="Kunst"> Kunst </label>
               </div>
@@ -168,8 +160,10 @@ export default function Add() {
               <div className="Checkbox">
                 <input
                   type="checkbox"
-                  value={therapy.Sport}
-                  onChange={(e) => setTherapy({ Sport: e.target.value })}
+                  checked={therapy.Sport}
+                  onChange={(e) =>
+                    setTherapy({ ...therapy, Sport: e.target.checked })
+                  }
                 />
                 <label for="Sport"> Sport </label>
               </div>
@@ -177,8 +171,10 @@ export default function Add() {
               <div className="Checkbox">
                 <input
                   type="checkbox"
-                  value={therapy.Gruppen}
-                  onChange={(e) => setTherapy({ Gruppen: e.target.value })}
+                  checked={therapy.Gruppen}
+                  onChange={(e) =>
+                    setTherapy({ ...therapy, Gruppen: e.target.checked })
+                  }
                 />
                 <label for="Gruppen"> Gruppen </label>
               </div>
@@ -187,8 +183,10 @@ export default function Add() {
               <div className="Checkbox">
                 <input
                   type="checkbox"
-                  value={therapy.Bewegung}
-                  onChange={(e) => setTherapy({ Bewegung: e.target.value })}
+                  checked={therapy.Bewegung}
+                  onChange={(e) =>
+                    setTherapy({ ...therapy, Bewegung: e.target.checked })
+                  }
                 />
                 <label for="Bewegung"> Bewegung </label>
               </div>
@@ -196,8 +194,10 @@ export default function Add() {
               <div className="Checkbox">
                 <input
                   type="checkbox"
-                  value={therapy.Körper}
-                  onChange={(e) => setTherapy({ Körper: e.target.value })}
+                  checked={therapy.Körper}
+                  onChange={(e) =>
+                    setTherapy({ ...therapy, Körper: e.target.checked })
+                  }
                 />
                 <label for="Körper"> Körper </label>
               </div>
@@ -205,8 +205,10 @@ export default function Add() {
               <div className="Checkbox">
                 <input
                   type="checkbox"
-                  value={therapy.Tanz}
-                  onChange={(e) => setTherapy({ Tanz: e.target.value })}
+                  checked={therapy.Tanz}
+                  onChange={(e) =>
+                    setTherapy({ ...therapy, Tanz: e.target.checked })
+                  }
                 />
                 <label for="Tanz"> Tanz </label>
               </div>
@@ -216,8 +218,10 @@ export default function Add() {
               <div className="Checkbox">
                 <input
                   type="checkbox"
-                  value={therapy.Wellness}
-                  onChange={(e) => setTherapy({ Wellness: e.target.value })}
+                  checked={therapy.Wellness}
+                  onChange={(e) =>
+                    setTherapy({ ...therapy, Wellness: e.target.checked })
+                  }
                 />
 
                 <label for="Wellness"> Wellness </label>
@@ -226,8 +230,10 @@ export default function Add() {
               <div className="Checkbox">
                 <input
                   type="checkbox"
-                  value={therapy.Musik}
-                  onChange={(e) => setTherapy({ Musik: e.target.value })}
+                  checked={therapy.Musik}
+                  onChange={(e) =>
+                    setTherapy({ ...therapy, Musik: e.target.checked })
+                  }
                 />
 
                 <label for="Musik"> Musik </label>
@@ -237,7 +243,7 @@ export default function Add() {
                 <input
                   className="TextSonstiges"
                   type="text"
-                  value={therapy.Sonstiges}
+                  checked={therapy.Sonstiges}
                   onChange={(e) => setTherapy({ Welleness: e.target.value })}
                   placeholder="Sonstiges"
                 />
@@ -247,22 +253,22 @@ export default function Add() {
         </div>
 
         <div className="Visitors">
-          <input type="checkbox" value={visitors} onChange={handleVisitors} />
+          <input type="checkbox" checked={visitors} onChange={handleVisitors} />
           <label for="Visitors"> Besuch erlaubt </label>
         </div>
 
         <div className="Children">
-          <input type="checkbox" value={children} onChange={handleChildren} />
+          <input type="checkbox" checked={children} onChange={handleChildren} />
           <label for="Children"> Kinder erlaubt </label>
         </div>
 
         <div className="Animals">
-          <input type="checkbox" value={animals} onChange={handleAnimals} />
+          <input type="checkbox" checked={animals} onChange={handleAnimals} />
           <label for="Animals"> Haustiere </label>
         </div>
 
         <div className="Room">
-          <input type="checkbox" value={room} onChange={handleRoom} />
+          <input type="checkbox" checked={room} onChange={handleRoom} />
           <label for="Room"> Einzelzimmer </label>
         </div>
 
@@ -307,4 +313,28 @@ export default function Add() {
       <Navigation />
     </div>
   );
+
+  //reset Form
+  function resetForm() {
+    setClinicName("");
+    setPlace("");
+    setInsurance("");
+    setTherapy({
+      Kunst: false,
+      Sport: false,
+      Gruppen: false,
+      Bewegung: false,
+      Körper: false,
+      Musik: false,
+      Tanz: false,
+      Wellness: false,
+      Sonstiges: "",
+    });
+    setVisitors(false);
+    setChildren(false);
+    setAnimals(false);
+    setRoom(false);
+    setLink("");
+    setNotes("");
+  }
 }
