@@ -1,6 +1,7 @@
 import SmallButton from "./SmallButton";
 import "./List.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import { getItemsFromLocalStorage } from "./Services/ClinicStorage";
 import ClinicCard from "./ClinicCard";
@@ -14,10 +15,10 @@ function List() {
   }, []);
 
   function renderClinic() {
-    return clinicData.map((clinic, index) => {
+    return clinicData.map((singleClinic) => {
       return (
         <article className="ClinicCardList">
-          <ClinicCard />
+          <ClinicCard />s
         </article>
       );
     });

@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import Linkify from "react-linkify";
 import { ReactComponent as Button } from "../images/Button.svg";
 import SmallButton from "./SmallButton";
-import "./Add.css";
+import "./Form.css";
 import { addItemToLocalStorage } from "./Services/ClinicStorage";
 
 export default function Add() {
