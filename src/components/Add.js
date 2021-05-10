@@ -5,12 +5,13 @@ import Linkify from "react-linkify";
 import { ReactComponent as Button } from "../images/Button.svg";
 import SmallButton from "./SmallButton";
 import "./Add.css";
+import { addItemToLocalStorage } from "./Services/ClinicStorage";
 
 export default function Add() {
   const history = useHistory();
   const [clinicName, setClinicName] = useState("");
   const [place, setPlace] = useState("");
-  const [insurance, setInsurance] = useState();
+  const [insurance, setInsurance] = useState("");
   const [therapy, setTherapy] = useState({
     Kunst: false,
     Sport: false,
@@ -77,6 +78,34 @@ export default function Add() {
 
   function handleClickBack() {
     history.goBack();
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    addItemToLocalStorage({
+      id: clinicName,
+      place: place,
+      insurance: insurance,
+      therapy: therapy,
+      visitors: visitors,
+      children: children,
+      animals: animals,
+      room: room,
+      link: link,
+      notes: notes,
+    });
+
+    setClinicName("");
+    setPlace("");
+    setInsurance("");
+    setTherapy("");
+    setVisitors(false);
+    setChildren(false);
+    setAnimals(false);
+    setRoom(false);
+    setLink("");
+    setNotes("");
   }
 
   return (
@@ -268,7 +297,9 @@ export default function Add() {
               className="ButtonBack"
               onClick={handleClickBack}
             />
-            <Button />
+            <Button type="submit" onClick={handleSubmit}>
+              <Button />
+            </Button>
             <SmallButton text="löschen" className="ButtonDelete" />
           </span>
         </div>
