@@ -5,6 +5,7 @@ export function addItemToLocalStorage(newClinic) {
   newClinics.push(newClinic);
 
   localStorage.setItem("clinicData", JSON.stringify(newClinics));
+  console.log(newClinics);
 }
 
 //Get Item

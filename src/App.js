@@ -23,7 +23,6 @@ function App() {
           <Route path="/checklist">
             <Header text="Checklist" />
           </Route>
-
           <Route path="/"></Route>
         </Switch>
 

@@ -95,6 +95,7 @@ export default function Add() {
       link: link,
       notes: notes,
     });
+
     resetForm();
   }
 
@@ -223,7 +224,6 @@ export default function Add() {
                     setTherapy({ ...therapy, Wellness: e.target.checked })
                   }
                 />
-
                 <label for="Wellness"> Wellness </label>
               </div>
 
@@ -244,7 +244,7 @@ export default function Add() {
                   className="TextSonstiges"
                   type="text"
                   checked={therapy.Sonstiges}
-                  onChange={(e) => setTherapy({ Welleness: e.target.value })}
+                  onChange={(e) => setTherapy({ Wellness: e.target.value })}
                   placeholder="Sonstiges"
                 />
               </div>
