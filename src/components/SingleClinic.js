@@ -25,6 +25,7 @@ export default function SingleClinic() {
       Wellness: false,
       Sonstiges: "value",
     };
+
     const therapyArr = Object.entries(therapyObject);
     console.log(therapyArr);
 

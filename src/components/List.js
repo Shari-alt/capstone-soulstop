@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { getItemsFromLocalStorage } from "./Services/ClinicStorage";
 import ClinicCard from "./ClinicCard";
 
-function List() {
+function ClinicList() {
   const [clinicData, setClinicData] = useState([]);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ function List() {
     setClinicData(clinic);
   }, []);
 
-  function renderClinic() {
+  function renderClinics() {
     return clinicData.map((clinicData, index) => {
       return (
         <article className="ClinicCardList">
@@ -34,8 +34,8 @@ function List() {
         </NavLink>
         <SmallButton text="Filter" />
       </div>
-      {renderClinic()}
+      {renderClinics()}
     </div>
   );
 }
-export default List;
+export default ClinicList;

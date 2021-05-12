@@ -7,7 +7,7 @@ import SmallButton from "./SmallButton";
 import "./Form.css";
 import { addItemToLocalStorage } from "./Services/ClinicStorage";
 
-export default function Add() {
+export default function FormAddClinic() {
   const history = useHistory();
   const [clinicName, setClinicName] = useState("");
   const [place, setPlace] = useState("");
@@ -94,6 +94,7 @@ export default function Add() {
       room: room,
       link: link,
       notes: notes,
+      isSaved: false,
     });
 
     resetForm();

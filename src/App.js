@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import List from "./components/List";
+import ClinicList from "./components/List";
 import Favourites from "./components/Favourites";
 import Checklist from "./components/Checklist";
 import Home from "./components/Home";
 import Header from "./components/Header";
-import Add from "./components/Add";
+import FormAddClinic from "./components/Add";
 import Navigation from "./components/Navigation";
 import SingleClinic from "./components/SingleClinic";
 
@@ -29,7 +29,7 @@ function App() {
         <main className="Main">
           <Switch>
             <Route path="/list">
-              <List />
+              <ClinicList />
             </Route>
             <Route path="/favourites">
               <Favourites />
@@ -38,7 +38,7 @@ function App() {
               <Checklist />
             </Route>
             <Route path="/add">
-              <Add />
+              <FormAddClinic />
             </Route>
             <Route path="/singleclinic/:id">
               <SingleClinic />

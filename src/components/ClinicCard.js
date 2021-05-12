@@ -6,12 +6,12 @@ import { ReactComponent as SavedHeart } from "../images/SavedHeart.svg";
 import { useState } from "react";
 
 export default function ClinicCard({ clinicData }) {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
 
-  function handleSaveClick() {
-    setIsClicked(!isClicked);
+  function onfavouriteClinic() {
+    setIsSaved(!isSaved);
   }
-  console.log(clinicData);
+
   return (
     <article className="ClinicCardList">
       <div className="ClinicCard">
@@ -22,8 +22,8 @@ export default function ClinicCard({ clinicData }) {
           <button className="Button_Edit">
             <Edit className="Edit" />
           </button>
-          <button className="Button_Save" onClick={handleSaveClick}>
-            {isClicked ? <SavedHeart /> : <Save className="Save" />}
+          <button className="Button_Save" onClick={onfavouriteClinic}>
+            {isSaved ? <SavedHeart /> : <Save className="Save" />}
           </button>
         </div>
       </div>
