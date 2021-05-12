@@ -18,7 +18,7 @@ function List() {
       return (
         <article className="ClinicCardList">
           <Link to={`/singleclinic/${clinicData.id}`}>
-            <ClinicCard />
+            <ClinicCard clinicData={clinicData} />
           </Link>
         </article>
       );
