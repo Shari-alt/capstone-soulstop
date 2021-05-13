@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import {
+  getSingleClinicFromLocalStorage,
+  editSingleClinicFromLocalStorage,
+} from "./Services/ClinicStorage";
 import { useHistory } from "react-router-dom";
-import Linkify from "react-linkify";
-import { ReactComponent as Button } from "../images/Button.svg";
 import SmallButton from "./SmallButton";
+import { ReactComponent as Button } from "../images/Button.svg";
+import Linkify from "react-linkify";
 import "./Form.css";
-import { addItemToLocalStorage } from "./Services/ClinicStorage";
 
-export default function FormAddClinic() {
+export default function FormEditClinic() {
+  console.log("hello world");
   const history = useHistory();
+  const [singleClinic, setSingleClinic] = useState("");
   const [clinicName, setClinicName] = useState("");
   const [place, setPlace] = useState("");
   const [insurance, setInsurance] = useState("");
@@ -22,73 +28,17 @@ export default function FormAddClinic() {
     Wellness: false,
     Sonstiges: "",
   });
-
   const [visitors, setVisitors] = useState(false);
   const [children, setChildren] = useState(false);
   const [animals, setAnimals] = useState(false);
   const [room, setRoom] = useState(false);
   const [link, setLink] = useState("");
   const [notes, setNotes] = useState("");
-
-  function handleClinicName(event) {
-    const { value } = event.target;
-    // value = value.replace(/\s/g, "-");
-
-    // if (value.indexOf("") >= 0) {
-    //   value.join("-");
-    // }
-    setClinicName(value.str.split(" ").join("-"));
-  }
-
-  function handlePlace(event) {
-    const { value } = event.target;
-    setPlace(value);
-  }
-
-  function handleInsurance(event) {
-    const { value } = event.target;
-    setInsurance(value);
-  }
-
-  function handleVisitors(event) {
-    const { value } = event.target;
-    setVisitors(value);
-  }
-
-  function handleChildren(event) {
-    const { value } = event.target;
-    setChildren(value);
-  }
-
-  function handleAnimals(event) {
-    const { value } = event.target;
-    setAnimals(value);
-  }
-
-  function handleRoom(event) {
-    const { value } = event.target;
-    setRoom(value);
-  }
-
-  function handleLink(event) {
-    const { value } = event.target;
-    setLink(value);
-  }
-
-  function handleNotes(event) {
-    const { value } = event.target;
-    setNotes(value);
-  }
-
-  function handleClickBack() {
-    history.goBack();
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    addItemToLocalStorage({
-      id: clinicName,
+  const { id } = useParams();
+  console.log(id);
+  function handleOnSubmit(e) {
+    e.preventDefault();
+    editSingleClinicFromLocalStorage(id, {
       place: place,
       insurance: insurance,
       therapy: therapy,
@@ -98,25 +48,44 @@ export default function FormAddClinic() {
       room: room,
       link: link,
       notes: notes,
-      isSaved: false,
     });
-
-    resetForm();
+    history.push("/list");
   }
 
-  return (
-    <div className="Addfield">
+  function handleClickBack() {
+    history.goBack();
+  }
+
+  useEffect(() => {
+    const myClinic = getSingleClinicFromLocalStorage(id);
+    setPlace(myClinic.place);
+    setInsurance(myClinic.insurance);
+    setTherapy(myClinic.therapy);
+    setSingleClinic(myClinic);
+    setVisitors(myClinic.visitors);
+    setChildren(myClinic.children);
+    setAnimals(myClinic.animals);
+    setRoom(myClinic.room);
+    setLink(myClinic.link);
+    setNotes(myClinic.notes);
+  }, [id]);
+
+  console.log(singleClinic);
+
+  return singleClinic ? (
+    <div className="Addfield" key={id}>
       <article className="Formfield">
+        <p> Hello World </p>
         <div>
           <input
             type="text"
             name="ClinicName"
             id="ClinicName"
             value={clinicName}
-            onChange={handleClinicName}
+            onChange={(e) => {
+              setClinicName(e.target.value);
+            }}
             className="InputClinicName"
-            placeholder="Name der Klinik"
-            required
           />
         </div>
 
@@ -126,10 +95,10 @@ export default function FormAddClinic() {
             name="Place"
             id="Place"
             value={place}
-            onChange={handlePlace}
+            onChange={(e) => {
+              setPlace(e.target.value);
+            }}
             className="InputPlace"
-            placeholder="Land, Bundesland oder Stadt "
-            required
           />
         </div>
 
@@ -137,7 +106,12 @@ export default function FormAddClinic() {
           <p className="FormTitle"> Versicherungsart</p>
           <label for="Insurance"> </label>
           <div className="SelectMenu">
-            <select value={insurance} onChange={handleInsurance}>
+            <select
+              value={insurance}
+              onChange={(e) => {
+                setInsurance(e.target.value);
+              }}
+            >
               <option default> Bitte wählen</option>
               <option value="privat"> Privatversicherung</option>
               <option value="public"> Gesetzliche Versicherung</option>
@@ -256,22 +230,46 @@ export default function FormAddClinic() {
         </div>
 
         <div className="Visitors">
-          <input type="checkbox" checked={visitors} onChange={handleVisitors} />
+          <input
+            type="checkbox"
+            checked={visitors}
+            onChange={(e) => {
+              setVisitors(e.target.value);
+            }}
+          />
           <label for="Visitors"> Besuch erlaubt </label>
         </div>
 
         <div className="Children">
-          <input type="checkbox" checked={children} onChange={handleChildren} />
+          <input
+            type="checkbox"
+            checked={children}
+            onChange={(e) => {
+              setVisitors(e.target.value);
+            }}
+          />
           <label for="Children"> Kinder erlaubt </label>
         </div>
 
         <div className="Animals">
-          <input type="checkbox" checked={animals} onChange={handleAnimals} />
+          <input
+            type="checkbox"
+            checked={animals}
+            onChange={(e) => {
+              setAnimals(e.target.value);
+            }}
+          />
           <label for="Animals"> Haustiere </label>
         </div>
 
         <div className="Room">
-          <input type="checkbox" checked={room} onChange={handleRoom} />
+          <input
+            type="checkbox"
+            checked={room}
+            onChange={(e) => {
+              setRoom(e.target.value);
+            }}
+          />
           <label for="Room"> Einzelzimmer </label>
         </div>
 
@@ -280,8 +278,9 @@ export default function FormAddClinic() {
             <input
               type="text"
               value={link}
-              onChange={handleLink}
-              placeholder="Link zur Website"
+              onChange={(e) => {
+                setLink(e.target.value);
+              }}
               className="LinkInput"
             />
           </Linkify>
@@ -290,7 +289,9 @@ export default function FormAddClinic() {
           <textarea
             type="text"
             value={notes}
-            onChange={handleNotes}
+            onChange={(e) => {
+              setNotes(e.target.value);
+            }}
             placeholder="Platz für Notizen..."
             className="NotesInput"
           />
@@ -306,7 +307,7 @@ export default function FormAddClinic() {
               className="ButtonBack"
               onClick={handleClickBack}
             />
-            <Button type="submit" onClick={handleSubmit}>
+            <Button type="submit" onClick={handleOnSubmit}>
               <Button />
             </Button>
             <SmallButton text="löschen" className="ButtonDelete" />
@@ -314,29 +315,7 @@ export default function FormAddClinic() {
         </div>
       </article>
     </div>
+  ) : (
+    <p> Hello World </p>
   );
-
-  //reset Form
-  function resetForm() {
-    setClinicName("");
-    setPlace("");
-    setInsurance("");
-    setTherapy({
-      Kunst: false,
-      Sport: false,
-      Gruppen: false,
-      Bewegung: false,
-      Körper: false,
-      Musik: false,
-      Tanz: false,
-      Wellness: false,
-      Sonstiges: "",
-    });
-    setVisitors(false);
-    setChildren(false);
-    setAnimals(false);
-    setRoom(false);
-    setLink("");
-    setNotes("");
-  }
 }

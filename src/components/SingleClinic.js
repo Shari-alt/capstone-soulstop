@@ -8,9 +8,8 @@ export default function SingleClinic() {
   const { id } = useParams();
 
   useEffect(() => {
-    const myClinics = getSingleClinicFromLocalStorage(id);
-    setSingleClinic(myClinics);
-    console.log(myClinics);
+    const myClinic = getSingleClinicFromLocalStorage(id);
+    setSingleClinic(myClinic);
   }, [id]);
 
   function showClickedTherapy(field) {
@@ -27,7 +26,6 @@ export default function SingleClinic() {
     };
 
     const therapyArr = Object.entries(therapyObject);
-    console.log(therapyArr);
 
     const activeTherapies = therapyArr
       .filter(([key, value]) => value)

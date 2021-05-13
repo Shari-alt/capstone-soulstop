@@ -23,9 +23,9 @@ export function getSingleClinicFromLocalStorage(id) {
   return singleClinic;
 }
 
-//Edit Single from Local Storage
+//Edit Single Clinic from Local Storage
 export function editSingleClinicFromLocalStorage(id, updatedClinic) {
-  const myClinics = editSingleClinicFromLocalStorage();
+  const myClinics = getSingleClinicFromLocalStorage();
 
   const updatedClinics = myClinics.map((newClinic) => {
     if (newClinic.id === id) {

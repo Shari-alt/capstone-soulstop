@@ -5,9 +5,10 @@ import Favourites from "./components/Favourites";
 import Checklist from "./components/Checklist";
 import Home from "./components/Home";
 import Header from "./components/Header";
-import FormAddClinic from "./components/Add";
+import FormAddClinic from "./components/FormAddClinic";
 import Navigation from "./components/Navigation";
 import SingleClinic from "./components/SingleClinic";
+import FormEditClinic from "./components/FormEditClinic";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
             </Route>
             <Route path="/add">
               <FormAddClinic />
+            </Route>
+            <Route path="/singleclinic/edit/:id">
+              <FormEditClinic />
             </Route>
             <Route path="/singleclinic/:id">
               <SingleClinic />
