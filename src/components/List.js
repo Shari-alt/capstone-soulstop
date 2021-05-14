@@ -1,10 +1,30 @@
 import SmallButton from "./SmallButton";
 import "./List.css";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getItemsFromLocalStorage } from "./Services/ClinicStorage";
 import ClinicCard from "./ClinicCard";
 
-export default function List() {
+function ClinicList() {
+  const [clinicData, setClinicData] = useState([]);
+
+  useEffect(() => {
+    const clinic = getItemsFromLocalStorage("clinicData");
+    setClinicData(clinic);
+  }, []);
+
+  function renderClinics() {
+    return clinicData.map((clinicData, index) => {
+      return (
+        <article className="ClinicCardList">
+          <Link to={`/singleclinic/${clinicData.id}`}>
+            <ClinicCard clinicData={clinicData} />
+          </Link>
+        </article>
+      );
+    });
+  }
+
   return (
     <div className="Listlayout">
       <div className="SmallButtons">
@@ -14,16 +34,8 @@ export default function List() {
         </NavLink>
         <SmallButton text="Filter" />
       </div>
-      <div className="ClinicCardList">
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-        <ClinicCard />
-      </div>
+      {renderClinics()}
     </div>
   );
 }
+export default ClinicList;
