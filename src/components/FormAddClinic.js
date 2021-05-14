@@ -16,7 +16,7 @@ export default function FormAddClinic() {
     Sport: false,
     Gruppen: false,
     Bewegung: false,
-    Körper: false,
+    Koerper: false,
     Musik: false,
     Tanz: false,
     Wellness: false,
@@ -193,12 +193,12 @@ export default function FormAddClinic() {
               <div className="Checkbox">
                 <input
                   type="checkbox"
-                  checked={therapy.Körper}
+                  checked={therapy.Koerper}
                   onChange={(e) =>
-                    setTherapy({ ...therapy, Körper: e.target.checked })
+                    setTherapy({ ...therapy, Koerper: e.target.checked })
                   }
                 />
-                <label for="Körper"> Körper </label>
+                <label for="Koerper"> Körper </label>
               </div>
 
               <div className="Checkbox">
