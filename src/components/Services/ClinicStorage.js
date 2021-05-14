@@ -1,9 +1,7 @@
 //Add Item
 export function addItemToLocalStorage(newClinic) {
   const newClinics = getItemsFromLocalStorage();
-
   newClinics.push(newClinic);
-
   localStorage.setItem("clinicData", JSON.stringify(newClinics));
   console.log(newClinics);
 }
@@ -25,8 +23,7 @@ export function getSingleClinicFromLocalStorage(id) {
 
 //Edit Single Clinic from Local Storage
 export function editSingleClinicFromLocalStorage(id, updatedClinic) {
-  const myClinics = getSingleClinicFromLocalStorage();
-
+  const myClinics = getItemsFromLocalStorage();
   const updatedClinics = myClinics.map((newClinic) => {
     if (newClinic.id === id) {
       return { ...newClinic, ...updatedClinic };
@@ -34,5 +31,15 @@ export function editSingleClinicFromLocalStorage(id, updatedClinic) {
       return newClinic;
     }
   });
+  localStorage.setItem("clinicData", JSON.stringify(updatedClinics));
+}
+
+//Remove Single Clinic from Local Storage
+export function removeClinicFromLocalStorage(clinicId) {
+  const myClinics = getItemsFromLocalStorage();
+  const updatedClinics = myClinics.filter((newClinic) => {
+    return newClinic.id !== clinicId;
+  });
+
   localStorage.setItem("clinicData", JSON.stringify(updatedClinics));
 }

@@ -20,7 +20,7 @@ export default function ClinicCard({ clinicData }) {
     <article className="ClinicCardList">
       <div className="ClinicCard">
         <img className="ClinicPicture" src={Download} alt="Clinicpicture" />
-        <h3 className="ClinicName"> {clinicData.id} </h3>
+        <h3 className="ClinicName"> {clinicData.name} </h3>
         <p className="ClinicPlace"> {clinicData.place}</p>
         <div className="ClinicCardButtons">
           <Link to={`/singleclinic/edit/${ide}`}>

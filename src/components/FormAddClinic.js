@@ -22,7 +22,6 @@ export default function FormAddClinic() {
     Wellness: false,
     Sonstiges: "",
   });
-
   const [visitors, setVisitors] = useState(false);
   const [children, setChildren] = useState(false);
   const [animals, setAnimals] = useState(false);
@@ -32,12 +31,7 @@ export default function FormAddClinic() {
 
   function handleClinicName(event) {
     const { value } = event.target;
-    // value = value.replace(/\s/g, "-");
-
-    // if (value.indexOf("") >= 0) {
-    //   value.join("-");
-    // }
-    setClinicName(value.str.split(" ").join("-"));
+    setClinicName(value);
   }
 
   function handlePlace(event) {
@@ -88,7 +82,8 @@ export default function FormAddClinic() {
     event.preventDefault();
 
     addItemToLocalStorage({
-      id: clinicName,
+      id: clinicName.split(" ").join("-"),
+      name: clinicName,
       place: place,
       insurance: insurance,
       therapy: therapy,
@@ -100,8 +95,8 @@ export default function FormAddClinic() {
       notes: notes,
       isSaved: false,
     });
-
     resetForm();
+    history.push("/list");
   }
 
   return (
@@ -309,7 +304,11 @@ export default function FormAddClinic() {
             <Button type="submit" onClick={handleSubmit}>
               <Button />
             </Button>
-            <SmallButton text="löschen" className="ButtonDelete" />
+            <SmallButton
+              text="löschen"
+              className="ButtonDelete"
+              onClick={handleClickBack}
+            />
           </span>
         </div>
       </article>

@@ -36,7 +36,7 @@ export default function SingleClinic() {
   return singleClinic ? (
     <div className="Addfield" key={id}>
       <div>
-        <h2>{singleClinic.id}</h2>
+        <h2>{singleClinic.name}</h2>
         <p> {singleClinic.place} </p>
         <p> Versicherung: {singleClinic.insurance}</p>
         <p> Therapie: {showClickedTherapy()} </p>

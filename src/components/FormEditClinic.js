@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import {
   getSingleClinicFromLocalStorage,
   editSingleClinicFromLocalStorage,
+  removeClinicFromLocalStorage,
+  getItemsFromLocalStorage,
 } from "./Services/ClinicStorage";
 import { useHistory } from "react-router-dom";
 import SmallButton from "./SmallButton";
@@ -11,7 +13,6 @@ import Linkify from "react-linkify";
 import "./Form.css";
 
 export default function FormEditClinic() {
-  console.log("hello world");
   const history = useHistory();
   const [singleClinic, setSingleClinic] = useState("");
   const [clinicName, setClinicName] = useState("");
@@ -35,10 +36,11 @@ export default function FormEditClinic() {
   const [link, setLink] = useState("");
   const [notes, setNotes] = useState("");
   const { id } = useParams();
-  console.log(id);
+
   function handleOnSubmit(e) {
     e.preventDefault();
     editSingleClinicFromLocalStorage(id, {
+      name: clinicName,
       place: place,
       insurance: insurance,
       therapy: therapy,
@@ -51,13 +53,23 @@ export default function FormEditClinic() {
     });
     history.push("/list");
   }
-
   function handleClickBack() {
     history.goBack();
   }
 
+  function removeClinic() {
+    const confirm = window.confirm("Do you really want to remove the trip?");
+    if (confirm) {
+      removeClinicFromLocalStorage(id);
+      const newClinics = getItemsFromLocalStorage();
+      setSingleClinic(newClinics);
+    }
+    history.push("/list");
+  }
+
   useEffect(() => {
     const myClinic = getSingleClinicFromLocalStorage(id);
+    setClinicName(myClinic.name);
     setPlace(myClinic.place);
     setInsurance(myClinic.insurance);
     setTherapy(myClinic.therapy);
@@ -75,7 +87,6 @@ export default function FormEditClinic() {
   return singleClinic ? (
     <div className="Addfield" key={id}>
       <article className="Formfield">
-        <p> Hello World </p>
         <div>
           <input
             type="text"
@@ -310,12 +321,16 @@ export default function FormEditClinic() {
             <Button type="submit" onClick={handleOnSubmit}>
               <Button />
             </Button>
-            <SmallButton text="löschen" className="ButtonDelete" />
+            <SmallButton
+              text="löschen"
+              onClick={removeClinic}
+              className="ButtonDelete"
+            />
           </span>
         </div>
       </article>
     </div>
   ) : (
-    <p> Hello World </p>
+    <p> </p>
   );
 }
