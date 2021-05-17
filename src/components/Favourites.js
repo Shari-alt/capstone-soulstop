@@ -11,7 +11,7 @@ export default function Favourites() {
         <SmallButton text="Filter" />
       </div>
       <div className="ClinicCardList">
-        <ClinicCard />
+        <ClinicCard clinicData />
       </div>
     </div>
   );

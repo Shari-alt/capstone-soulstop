@@ -54,7 +54,15 @@ function App() {
         </main>
         <Switch>
           <Route exact path="/"></Route>
-          <Route path={["/list", "/favourites", "/checklist", "/add"]}>
+          <Route
+            path={[
+              "/list",
+              "/favourites",
+              "/checklist",
+              "/add",
+              "/singleclinic/:id",
+            ]}
+          >
             <Navigation />
           </Route>
         </Switch>

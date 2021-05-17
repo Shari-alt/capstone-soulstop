@@ -5,19 +5,72 @@
 
 .SingleClinicView {
   background-color: #ffffff;
-  margin-top: 10px;
   box-shadow: 0px 0px 5px 8px rgba(226, 221, 221, 0.3);
-  width: 260px;
+  width: 80%;
   border-radius: 15px;
   overflow-y: scroll;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
+  text-align: center;
+  padding: 60px;
   padding-bottom: 40px;
-  margin-bottom: 50px;
-  margin-top: 20px;
-  height: 29em;
-  width: 80%;
+  margin-bottom: 90px;
+  margin-top: 40px;
+  height: auto;
   justify-content: space-around;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+}
+
+.InputPlace {
+  box-shadow: 8px 8px 8px #cbced1, inset -8px -8px 8px #e2ecf8;
+  padding-bottom: 40px !important;
+}
+
+.Notes {
+  margin-bottom: 20px;
+}
+
+.Children,
+.Animals,
+.Room {
+  width: 180px;
+  font-size: 16px;
+  padding: 1px;
+}
+
+.PlaceText {
+  text-align: center;
+  position: relative;
+  top: -1px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.Notes {
+  height: auto;
+}
+
+.Visitors {
+  font-size: 16px;
+  width: 180px !important;
+  padding: 1px;
+}
+
+.Therapytext {
+  font-size: 16px;
+}
+
+.InsuranceSelect {
+  font-size: 16px;
+  padding: 1px;
+  padding: 10px;
+  height: auto;
+}
+
+.SmallButton {
+  margin-top: 10px !important;
 }
