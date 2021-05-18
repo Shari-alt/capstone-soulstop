@@ -7,7 +7,7 @@ import ClinicCard from "./ClinicCard";
 
 function ClinicList() {
   const [clinicData, setClinicData] = useState([]);
-  const clinicDataLength = clinicData.length;
+
   useEffect(() => {
     const clinic = getItemsFromLocalStorage();
     setClinicData(clinic);
