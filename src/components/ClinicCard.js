@@ -6,13 +6,18 @@ import { ReactComponent as Save } from "../images/Save.svg";
 import { ReactComponent as SavedHeart } from "../images/SavedHeart.svg";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { editSingleClinicFromLocalStorage } from "./Services/ClinicStorage";
 
 export default function ClinicCard({ clinicData }) {
   const [isSaved, setIsSaved] = useState(false);
   let { ide } = useParams();
   ide = clinicData.id.replace(/\s+/g, "-");
 
-  function onfavouriteClinic() {
+  function onfavouriteClinic(e) {
+    e.preventDefault();
+    editSingleClinicFromLocalStorage(ide, {
+      isSaved: true,
+    });
     setIsSaved(!isSaved);
   }
 
