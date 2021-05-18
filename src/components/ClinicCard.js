@@ -10,13 +10,12 @@ import { editSingleClinicFromLocalStorage } from "./Services/ClinicStorage";
 
 export default function ClinicCard({ clinicData }) {
   const [isSaved, setIsSaved] = useState(false);
-  let { ide } = useParams();
-  ide = clinicData.id.replace(/\s+/g, "-");
+  const id = clinicData.id.replace(/\s+/g, "-");
 
   function onfavouriteClinic(e) {
     e.preventDefault();
-    editSingleClinicFromLocalStorage(ide, {
-      isSaved: true,
+    editSingleClinicFromLocalStorage(id, {
+      isSaved: !isSaved,
     });
     setIsSaved(!isSaved);
   }
@@ -28,13 +27,17 @@ export default function ClinicCard({ clinicData }) {
         <h3 className="ClinicName"> {clinicData.name} </h3>
         <p className="ClinicPlace"> {clinicData.place}</p>
         <div className="ClinicCardButtons">
-          <Link to={`/singleclinic/edit/${ide}`}>
+          <Link to={`/singleclinic/edit/${id}`}>
             <button className="Button_Edit">
               <Edit className="Edit" />
             </button>
           </Link>
           <button className="Button_Save" onClick={onfavouriteClinic}>
-            {isSaved ? <SavedHeart /> : <Save className="Save" />}
+            {clinicData.isSaved === true ? (
+              <SavedHeart />
+            ) : (
+              <Save className="Save" />
+            )}
           </button>
         </div>
       </div>
