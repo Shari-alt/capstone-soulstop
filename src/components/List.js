@@ -9,16 +9,18 @@ function ClinicList() {
   const [clinicData, setClinicData] = useState([]);
 
   useEffect(() => {
-    const clinic = getItemsFromLocalStorage("clinicData");
+    const clinic = getItemsFromLocalStorage();
     setClinicData(clinic);
   }, []);
 
   function renderClinics() {
-    return clinicData.map((clinicData, index) => {
+    return clinicData.map((singleClinicData, index) => {
       return (
         <article className="ClinicCardList">
-          <Link to={`/singleclinic/${clinicData.id}`}>
-            <ClinicCard clinicData={clinicData} />
+          <Link to={`/singleclinic/${singleClinicData.id}`}>
+            {ClinicCard.length > 0 && (
+              <ClinicCard clinicData={singleClinicData} />
+            )}
           </Link>
         </article>
       );

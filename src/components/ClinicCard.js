@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 export default function ClinicCard({ clinicData }) {
   const [isSaved, setIsSaved] = useState(false);
   let { ide } = useParams();
-  ide = clinicData.id.replace(/\s+/g, "-");
+  // ide = clinicData.id.replace(/\s+/g, "-");
 
   function onfavouriteClinic() {
     setIsSaved(!isSaved);
