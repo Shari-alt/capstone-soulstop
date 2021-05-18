@@ -242,7 +242,7 @@ export default function FormAddClinic() {
                   className="TextSonstiges"
                   type="text"
                   checked={therapy.Sonstiges}
-                  onChange={(e) => setTherapy({ Wellness: e.target.value })}
+                  onChange={(e) => setTherapy({ Sonstiges: e.target.value })}
                   placeholder="Sonstiges"
                 />
               </div>

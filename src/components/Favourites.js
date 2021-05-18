@@ -35,7 +35,6 @@ export default function Favourites() {
         <SmallButton text="Suche" />
         <SmallButton text="Hinzufügen" />
         <SmallButton text="Filter" />
-      </div>
       <div className="ClinicCardList">{renderFavourites()}</div>
     </div>
   );
