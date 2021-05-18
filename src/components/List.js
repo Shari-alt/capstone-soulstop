@@ -12,7 +12,7 @@ function ClinicList() {
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
-    const clinic = getItemsFromLocalStorage("clinicData");
+    const clinic = getItemsFromLocalStorage();
     setClinicData(clinic);
   }, []);
 
@@ -40,7 +40,7 @@ function ClinicList() {
       return (
         <article className="ClinicCardList">
           <Link to={`/singleclinic/${clinicData.id}`}>
-            <ClinicCard clinicData={clinicData} />
+            {ClinicCard.length > 0 && <ClinicCard clinicData={clinicData} />}
           </Link>
         </article>
       );
