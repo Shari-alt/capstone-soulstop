@@ -4,17 +4,39 @@ import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getItemsFromLocalStorage } from "./Services/ClinicStorage";
 import ClinicCard from "./ClinicCard";
+import Searchbar from "./Searchbar";
 
 function ClinicList() {
   const [clinicData, setClinicData] = useState([]);
+  const [nameFilter, setNameFilter] = useState("");
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const clinic = getItemsFromLocalStorage("clinicData");
     setClinicData(clinic);
   }, []);
 
+  function handleToggleForm() {
+    setShowForm((prevState) => !prevState);
+  }
+
+  function handleOnNameFilter(filterNameValue) {
+    setNameFilter(filterNameValue);
+  }
+
   function renderClinics() {
-    return clinicData.map((clinicData, index) => {
+    const filterClinics = clinicData.filter((clinic) => {
+      if (nameFilter) {
+        return (
+          clinic.name.toLowerCase().includes(nameFilter.toLowerCase()) ||
+          clinic.place.toLowerCase().includes(nameFilter.toLowerCase()) ||
+          clinic.notes.toLowerCase().includes(nameFilter.toLowerCase())
+        );
+      } else {
+        return true;
+      }
+    });
+    return filterClinics.map((clinicData, index) => {
       return (
         <article className="ClinicCardList">
           <Link to={`/singleclinic/${clinicData.id}`}>
@@ -28,7 +50,10 @@ function ClinicList() {
   return (
     <div className="Listlayout">
       <div className="SmallButtons">
-        <SmallButton text="Suche" />
+        <div className="">
+          <SmallButton text="Suche" onClick={handleToggleForm} />
+          {showForm ? <Searchbar onNameChange={handleOnNameFilter} /> : null}
+        </div>
         <NavLink to="/add">
           <SmallButton text="Hinzufügen" />
         </NavLink>

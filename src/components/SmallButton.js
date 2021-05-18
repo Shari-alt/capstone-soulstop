@@ -4,8 +4,7 @@ export default function SmallButton({ text, onClick }) {
   return (
     <div>
       <button className="SmallButton" onClick={onClick}>
-        {" "}
-        {text}{" "}
+        {text}
       </button>
     </div>
   );
