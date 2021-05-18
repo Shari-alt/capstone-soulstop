@@ -5,14 +5,14 @@ import { ReactComponent as Edit } from "../images/Edit.svg";
 import { ReactComponent as Save } from "../images/Save.svg";
 import { ReactComponent as SavedHeart } from "../images/SavedHeart.svg";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
 import { editSingleClinicFromLocalStorage } from "./Services/ClinicStorage";
 
 export default function ClinicCard({ clinicData }) {
-  const [isSaved, setIsSaved] = useState(false);
+  const [isSaved, setIsSaved] = useState(clinicData.isSaved);
   const id = clinicData.id.replace(/\s+/g, "-");
 
   function onfavouriteClinic(e) {
+    console.log("click");
     e.preventDefault();
     editSingleClinicFromLocalStorage(id, {
       isSaved: !isSaved,
@@ -33,11 +33,7 @@ export default function ClinicCard({ clinicData }) {
             </button>
           </Link>
           <button className="Button_Save" onClick={onfavouriteClinic}>
-            {clinicData.isSaved === true ? (
-              <SavedHeart />
-            ) : (
-              <Save className="Save" />
-            )}
+            {isSaved === true ? <SavedHeart /> : <Save className="Save" />}
           </button>
         </div>
       </div>
