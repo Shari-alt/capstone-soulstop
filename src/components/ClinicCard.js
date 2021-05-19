@@ -5,14 +5,16 @@ import { ReactComponent as Edit } from "../images/Edit.svg";
 import { ReactComponent as Save } from "../images/Save.svg";
 import { ReactComponent as SavedHeart } from "../images/SavedHeart.svg";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { editSingleClinicFromLocalStorage } from "../services/ClinicStorage";
 
 export default function ClinicCard({ clinicData }) {
-  const [isSaved, setIsSaved] = useState(false);
-  let { ide } = useParams();
-  // ide = clinicData.id.replace(/\s+/g, "-");
+  const [isSaved, setIsSaved] = useState(clinicData.isSaved);
+  const id = clinicData.id.replace(/\s+/g, "-");
 
   function onfavouriteClinic() {
+    editSingleClinicFromLocalStorage(id, {
+      isSaved: !isSaved,
+    });
     setIsSaved(!isSaved);
   }
 
@@ -23,7 +25,7 @@ export default function ClinicCard({ clinicData }) {
         <h3 className="ClinicName"> {clinicData.name} </h3>
         <p className="ClinicPlace"> {clinicData.place}</p>
         <div className="ClinicCardButtons">
-          <Link to={`/singleclinic/edit/${ide}`}>
+          <Link to={`/singleclinic/edit/${id}`}>
             <button className="Button_Edit">
               <Edit className="Edit" />
             </button>
