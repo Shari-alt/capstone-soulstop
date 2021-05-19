@@ -30,11 +30,9 @@ export default function Favourites() {
     });
     const filteredSavedClinics = savedClinic.filter((clinicData) => {
       if (nameFilter) {
-        return (
-          clinicData.name.toLowerCase().includes(nameFilter.toLowerCase()) ||
-          clinicData.place.toLowerCase().includes(nameFilter.toLowerCase()) ||
-          clinicData.notes.toLowerCase().includes(nameFilter.toLowerCase())
-        );
+        return `${clinicData.name} ${clinicData.place} ${clinicData.notes}`
+          .toLowerCase()
+          .includes(nameFilter.toLowerCase());
       } else {
         return true;
       }
