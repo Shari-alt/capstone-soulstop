@@ -4,12 +4,17 @@ import Download from "../images/Download.jpeg";
 import { ReactComponent as Edit } from "../images/Edit.svg";
 import { ReactComponent as Save } from "../images/Save.svg";
 import { ReactComponent as SavedHeart } from "../images/SavedHeart.svg";
-import { useState } from "react";
-import { editSingleClinicFromLocalStorage } from "./Services/ClinicStorage";
+import { useState, useEffect } from "react";
+import { editSingleClinicFromLocalStorage } from "./services/ClinicStorage";
 
 export default function ClinicCard({ clinicData }) {
   const [isSaved, setIsSaved] = useState(clinicData.isSaved);
   const id = clinicData.id.replace(/\s+/g, "-");
+
+  // useEffect(() => {
+  //   const clinicCard = editSingleClinicFromLocalStorage(id);
+  //   setIsSaved(clinicCard.isSaved);
+  // }, [id]);
 
   function onfavouriteClinic(e) {
     e.preventDefault();
@@ -31,8 +36,12 @@ export default function ClinicCard({ clinicData }) {
               <Edit className="Edit" />
             </button>
           </Link>
-          <button className="Button_Save" onClick={onfavouriteClinic}>
-            {isSaved === true ? <SavedHeart /> : <Save className="Save" />}
+          <button
+            className="Button_Save"
+            onClick={onfavouriteClinic}
+            // {(e) => setIsSaved(e.target.value)}
+          >
+            {isSaved ? <SavedHeart /> : <Save className="Save" />}
           </button>
         </div>
       </div>

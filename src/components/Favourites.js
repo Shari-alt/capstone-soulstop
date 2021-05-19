@@ -3,25 +3,25 @@ import "./List.css";
 import ClinicCard from "./ClinicCard";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getItemsFromLocalStorage } from "./Services/ClinicStorage";
+import { getItemsFromLocalStorage } from "./services/ClinicStorage";
 import Searchbar from "./Searchbar";
 
 export default function Favourites() {
   const [clinicData, setClinicData] = useState([]);
   const [nameFilter, setNameFilter] = useState("");
-  const [showForm, setShowForm] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     const clinic = getItemsFromLocalStorage("clinicData");
     setClinicData(clinic);
   }, []);
 
-  function handleOnNameFilter(filterNameValue) {
+  function handleFilterChange(filterNameValue) {
     setNameFilter(filterNameValue);
   }
 
   function handleToggleForm() {
-    setShowForm((prevState) => !prevState);
+    setShowSearch((prevState) => !prevState);
   }
 
   function renderFavourites() {
@@ -57,7 +57,7 @@ export default function Favourites() {
         <SmallButton text="Hinzufügen" />
         <SmallButton text="Filter" />
       </div>
-      {showForm ? <Searchbar onNameChange={handleOnNameFilter} /> : null}
+      {showSearch ? <Searchbar onNameChange={handleFilterChange} /> : null}
       {renderFavourites()}
     </div>
   );

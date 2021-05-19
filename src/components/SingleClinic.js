@@ -1,5 +1,5 @@
 import "./SingleClinic.css";
-import { getSingleClinicFromLocalStorage } from "../components/Services/ClinicStorage";
+import { getSingleClinicFromLocalStorage } from "../components/services/ClinicStorage";
 import { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { ReactComponent as LocationIcon } from "../images/LocationIcon.svg";
