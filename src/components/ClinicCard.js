@@ -12,7 +12,6 @@ export default function ClinicCard({ clinicData }) {
   const id = clinicData.id.replace(/\s+/g, "-");
 
   function onfavouriteClinic(e) {
-    console.log("click");
     e.preventDefault();
     editSingleClinicFromLocalStorage(id, {
       isSaved: !isSaved,

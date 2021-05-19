@@ -46,11 +46,10 @@ function ClinicList() {
       );
     });
   }
-
   return (
     <div className="Listlayout">
       <div className="SmallButtons">
-        <div className="">
+        <div className="Searchbar">
           <SmallButton text="Suche" onClick={handleToggleForm} />
           {showForm ? <Searchbar onNameChange={handleOnNameFilter} /> : null}
         </div>

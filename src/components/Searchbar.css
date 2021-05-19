@@ -1,0 +1,10 @@
+.SearchFilter {
+  height: 50px;
+  width: 60%;
+  border: none;
+  border-radius: 15px;
+  z-index: 200;
+  gap: 50px;
+  margin-left: 60px;
+  box-shadow: none !important;
+}

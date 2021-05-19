@@ -1,3 +1,4 @@
+import "./Searchbar.css";
 export default function SearchBar({ onNameChange }) {
   function handleOnNameFilter(event) {
     event.preventDefault();
