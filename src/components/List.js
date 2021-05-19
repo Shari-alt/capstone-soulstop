@@ -2,7 +2,7 @@ import SmallButton from "./SmallButton";
 import "./List.css";
 import { NavLink, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getItemsFromLocalStorage } from "./services/ClinicStorage";
+import { getItemsFromLocalStorage } from "../components/services/ClinicStorage";
 import ClinicCard from "./ClinicCard";
 import Searchbar from "./Searchbar";
 

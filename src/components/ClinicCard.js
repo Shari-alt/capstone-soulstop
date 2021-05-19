@@ -5,7 +5,7 @@ import { ReactComponent as Edit } from "../images/Edit.svg";
 import { ReactComponent as Save } from "../images/Save.svg";
 import { ReactComponent as SavedHeart } from "../images/SavedHeart.svg";
 import { useState } from "react";
-import { editSingleClinicFromLocalStorage } from "./services/ClinicStorage";
+import { editSingleClinicFromLocalStorage } from "../components/services/ClinicStorage";
 
 export default function ClinicCard({ clinicData }) {
   const [isSaved, setIsSaved] = useState(clinicData.isSaved);

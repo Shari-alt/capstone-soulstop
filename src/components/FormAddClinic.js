@@ -4,7 +4,7 @@ import Linkify from "react-linkify";
 import { ReactComponent as Button } from "../images/Button.svg";
 import SmallButton from "./SmallButton";
 import "./Form.css";
-import { addItemToLocalStorage } from "./services/ClinicStorage";
+import { addItemToLocalStorage } from "../components/services/ClinicStorage";
 
 export default function FormAddClinic() {
   const history = useHistory();
