@@ -5,7 +5,7 @@ import {
   editSingleClinicFromLocalStorage,
   removeClinicFromLocalStorage,
   getItemsFromLocalStorage,
-} from "../components/services/ClinicStorage";
+} from "../services/ClinicStorage";
 import { useHistory } from "react-router-dom";
 import SmallButton from "./SmallButton";
 import { ReactComponent as Button } from "../images/Button.svg";

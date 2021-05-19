@@ -3,7 +3,7 @@ import "./List.css";
 import ClinicCard from "./ClinicCard";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getItemsFromLocalStorage } from "../components/services/ClinicStorage";
+import { getItemsFromLocalStorage } from "../services/ClinicStorage";
 import Searchbar from "./Searchbar";
 
 export default function Favourites() {
