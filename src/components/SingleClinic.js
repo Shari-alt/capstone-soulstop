@@ -83,7 +83,9 @@ export default function SingleClinic() {
         {singleClinic.notes && (
           <p className="Notes"> Notizen: {singleClinic.notes}</p>
         )}
-
+        {singleClinic.photos && (
+          <p className="Picture">{singleClinic.photos}</p>
+        )}
         <SmallButton
           text="zurück"
           className="ButtonBack"
