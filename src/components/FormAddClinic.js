@@ -83,41 +83,46 @@ export default function FormAddClinic() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const fileListAsArray = Array.from(imageUploads);
-    const imagesPromises = fileListAsArray.map((imageUpload) => {
-      const formData = new FormData();
 
-      formData.append("file", imageUpload);
-      formData.append("upload_preset", "pzp0iaha");
+    if (clinicName === "") {
+      alert("Bitte einen Namen angeben");
+    } else {
+      const fileListAsArray = Array.from(imageUploads);
+      const imagesPromises = fileListAsArray.map((imageUpload) => {
+        const formData = new FormData();
 
-      return fetch("https://api.cloudinary.com/v1_1/dlm4sfyjm/image/upload", {
-        method: "PUT",
-        body: formData,
-      }).then((response) => response.json());
-    });
+        formData.append("file", imageUpload);
+        formData.append("upload_preset", "pzp0iaha");
 
-    Promise.all(imagesPromises).then((imagesResults) => {
-      const imageURLs = imagesResults.map(
-        (imageResult) => imageResult.secure_url
-      );
-      addItemToLocalStorage({
-        id: clinicName.split(" ").join("-"),
-        name: clinicName,
-        place: place,
-        insurance: insurance,
-        therapy: therapy,
-        visitors: visitors,
-        children: children,
-        animals: animals,
-        room: room,
-        link: link,
-        notes: notes,
-        photos: imageURLs,
-        isSaved: false,
+        return fetch("https://api.cloudinary.com/v1_1/dlm4sfyjm/image/upload", {
+          method: "PUT",
+          body: formData,
+        }).then((response) => response.json());
       });
-    });
-    resetForm();
-    history.push("/list");
+
+      Promise.all(imagesPromises).then((imagesResults) => {
+        const imageURLs = imagesResults.map(
+          (imageResult) => imageResult.secure_url
+        );
+        addItemToLocalStorage({
+          id: clinicName.split(" ").join("-"),
+          name: clinicName,
+          place: place,
+          insurance: insurance,
+          therapy: therapy,
+          visitors: visitors,
+          children: children,
+          animals: animals,
+          room: room,
+          link: link,
+          notes: notes,
+          photos: imageURLs,
+          isSaved: false,
+        });
+        resetForm();
+        history.push("/list");
+      });
+    }
   }
 
   return (
@@ -311,6 +316,7 @@ export default function FormAddClinic() {
             className="NotesInput"
           />
         </div>
+
         <div className="Picture">
           <UploadPhotos
             id="photo"

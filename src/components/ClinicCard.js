@@ -6,6 +6,7 @@ import { ReactComponent as SavedHeart } from "../images/SavedHeart.svg";
 import { useState } from "react";
 import { editSingleClinicFromLocalStorage } from "../services/ClinicStorage";
 import { Image } from "cloudinary-react";
+import Download from "../images/Download.jpeg";
 
 export default function ClinicCard({ clinicData }) {
   const [isSaved, setIsSaved] = useState(clinicData.isSaved);
@@ -17,18 +18,24 @@ export default function ClinicCard({ clinicData }) {
     });
     setIsSaved(!isSaved);
   }
-
+  console.log(clinicData.photos);
   return (
     <article className="ClinicCardList">
       <div className="ClinicCard">
         <div className="LinkSingleView">
           <Link to={`/singleclinic/${clinicData.id}`}>
-            {clinicData.photos && (
+            {clinicData && clinicData.photos.length > 0 ? (
               <Image
                 className="ClinicPicture"
                 cloudName="dlm4sfyjm"
                 publicId={clinicData.photos[0]}
                 secure="true"
+              />
+            ) : (
+              <img
+                src={Download}
+                alt="Defaultpicture"
+                className="ClinicPicture"
               />
             )}
             <h3 className="ClinicName"> {clinicData.name} </h3>

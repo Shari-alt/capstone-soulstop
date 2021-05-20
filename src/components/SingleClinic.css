@@ -16,7 +16,6 @@
   align-items: center;
   justify-items: center;
   text-align: center;
-  padding-bottom: 40px;
   margin-bottom: 90px;
   margin-top: 40px;
   height: auto;
@@ -33,10 +32,6 @@
 .InputPlace {
   box-shadow: 8px 8px 8px #cbced1, inset -8px -8px 8px #e2ecf8;
   padding-bottom: 40px !important;
-}
-
-.Notes {
-  margin-bottom: 20px;
 }
 
 .Children,
@@ -78,4 +73,10 @@
 
 .image {
   height: 100px;
+}
+
+.ButtonBack {
+  padding: 15px 0px 40px 0px;
+  justify-items: center;
+  align-items: center;
 }

@@ -89,11 +89,9 @@ export default function SingleClinic() {
             <PhotoCarousel name="photos" imagesArray={singleClinic.photos} />
           </div>
         )}
-        <SmallButton
-          text="zurück"
-          className="ButtonBack"
-          onClick={handleClickBack}
-        />
+        <div className="ButtonBack">
+          <SmallButton text="zurück" onClick={handleClickBack} />
+        </div>
       </div>
     </div>
   ) : (
