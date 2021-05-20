@@ -1,10 +1,11 @@
+import "/PhotoCarousel.css";
 import { BiChevronRight } from "react-icons/bi";
 import { useState } from "react";
 
 export default function PhotoCarousel({ imagesArray }) {
   const [picture, setPicture] = useState(0);
 
-  const length = imageyArray?.length;
+  const length = imagesArray?.length;
 
   const nextSlide = () => {
     setPicture(picture === length - 1 ? 0 : picture + 1);
