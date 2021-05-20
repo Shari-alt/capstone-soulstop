@@ -18,7 +18,7 @@ export default function ClinicCard({ clinicData }) {
     });
     setIsSaved(!isSaved);
   }
-  console.log(clinicData.photos);
+
   return (
     <article className="ClinicCardList">
       <div className="ClinicCard">
