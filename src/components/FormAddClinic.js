@@ -115,9 +115,9 @@ export default function FormAddClinic() {
         photos: imageURLs,
         isSaved: false,
       });
-      resetForm();
-      history.push("/list");
     });
+    resetForm();
+    history.push("/list");
   }
 
   return (

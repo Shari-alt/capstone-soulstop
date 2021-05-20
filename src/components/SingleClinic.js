@@ -39,7 +39,7 @@ export default function SingleClinic() {
   return singleClinic ? (
     <div className="Addfield" key={id}>
       <div className="SingleClinicView">
-        <h2>{singleClinic.name}</h2>
+        <h2 className="InputName">{singleClinic.name}</h2>
         {singleClinic.place && (
           <p className="InputPlace">
             <LocationIcon />

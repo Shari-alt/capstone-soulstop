@@ -1,6 +1,5 @@
 import "./ClinicCard.css";
 import { Link } from "react-router-dom";
-import Download from "../images/Download.jpeg";
 import { ReactComponent as Edit } from "../images/Edit.svg";
 import { ReactComponent as Save } from "../images/Save.svg";
 import { ReactComponent as SavedHeart } from "../images/SavedHeart.svg";
@@ -22,20 +21,20 @@ export default function ClinicCard({ clinicData }) {
   return (
     <article className="ClinicCardList">
       <div className="ClinicCard">
-        {clinicData.photos &&
-          clinicData.photos.map((image) => {
-            return (
+        <div className="LinkSingleView">
+          <Link to={`/singleclinic/${clinicData.id}`}>
+            {clinicData.photos && (
               <Image
                 className="ClinicPicture"
                 cloudName="dlm4sfyjm"
-                publicId={image}
+                publicId={clinicData.photos[0]}
                 secure="true"
               />
-            );
-          })}
-
-        <h3 className="ClinicName"> {clinicData.name} </h3>
-        <p className="ClinicPlace"> {clinicData.place}</p>
+            )}
+            <h3 className="ClinicName"> {clinicData.name} </h3>
+            <p className="ClinicPlace"> {clinicData.place}</p>
+          </Link>
+        </div>
         <div className="ClinicCardButtons">
           <Link to={`/singleclinic/edit/${id}`}>
             <button className="Button_Edit">

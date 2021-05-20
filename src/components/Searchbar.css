@@ -1,9 +1,8 @@
 .SearchFilter {
-  width: 60%;
+  width: 100%;
   border: none;
   border-radius: 15px;
-  z-index: 200;
-  gap: 50px;
-  margin-left: 60px;
+  z-index: 500;
+  margin-left: 40px;
   box-shadow: none !important;
 }

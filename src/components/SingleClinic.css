@@ -5,16 +5,17 @@
 
 .SingleClinicView {
   background-color: #ffffff;
+  grid-template-rows: [header] 50px [main] auto;
   box-shadow: 0px 0px 5px 8px rgba(226, 221, 221, 0.3);
   width: 80%;
   border-radius: 15px;
   overflow-y: scroll;
   overflow-x: hidden;
-  display: flex;
+  display: grid;
   flex-direction: column;
   align-items: center;
+  justify-items: center;
   text-align: center;
-  padding: 60px;
   padding-bottom: 40px;
   margin-bottom: 90px;
   margin-top: 40px;
@@ -23,6 +24,10 @@
   position: fixed;
   top: 0;
   bottom: 0;
+}
+
+.InputName {
+  grid-row: 1 / 2;
 }
 
 .InputPlace {
@@ -71,6 +76,6 @@
   height: auto;
 }
 
-.SmallButton {
-  margin-top: 10px !important;
+.image {
+  height: 100px;
 }

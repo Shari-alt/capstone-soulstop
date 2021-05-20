@@ -39,9 +39,7 @@ function ClinicList() {
     return filterClinics.map((clinicData, index) => {
       return (
         <article className="ClinicCardList">
-          <Link to={`/singleclinic/${clinicData.id}`}>
-            {ClinicCard.length > 0 && <ClinicCard clinicData={clinicData} />}
-          </Link>
+          {ClinicCard.length > 0 && <ClinicCard clinicData={clinicData} />}
         </article>
       );
     });

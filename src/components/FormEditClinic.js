@@ -58,7 +58,7 @@ export default function FormEditClinic() {
   }
 
   function removeClinic() {
-    const confirm = window.confirm("Do you really want to remove the trip?");
+    const confirm = window.confirm("Do you really want to remove this clinic?");
     if (confirm) {
       removeClinicFromLocalStorage(id);
       const newClinics = getItemsFromLocalStorage();
