@@ -1,6 +1,8 @@
 import "/PhotoCarousel.css";
-import { BiChevronRight } from "react-icons/bi";
+import { BiChevronsRight } from "react-icons/bi";
+
 import { useState } from "react";
+import { Image } from "cloudinary-react";
 
 export default function PhotoCarousel({ imagesArray }) {
   const [picture, setPicture] = useState(0);
@@ -18,7 +20,7 @@ export default function PhotoCarousel({ imagesArray }) {
   return (
     <div className="Carousel">
       {imagesArray?.length > 1 ? (
-        <BiChevronRight className="right-arrow" onClick={nextSlide} />
+        <BiChevronsRight className="right-arrow" onClick={nextSlide} />
       ) : null}
       {imagesArray.map((image, index) => {
         return (
@@ -27,7 +29,14 @@ export default function PhotoCarousel({ imagesArray }) {
             key={index}
           >
             {index === picture && (
-              <img className="prevImage" srx={image} alt={image} />
+              <Image
+                className="prevImage"
+                src={image}
+                alt={image}
+                cloudName="dlm4sfyjm"
+                publicId={image}
+                secure="true"
+              />
             )}
           </div>
         );

@@ -6,6 +6,7 @@ import { ReactComponent as LocationIcon } from "../images/LocationIcon.svg";
 import SmallButton from "./SmallButton";
 import { ReactComponent as Checkmarked } from "../images/Checkmarked.svg";
 import { Image } from "cloudinary-react";
+import PhotoCarousel from "./PhotoCarousel";
 
 export default function SingleClinic() {
   const [singleClinic, setSingleClinic] = useState();
@@ -84,17 +85,9 @@ export default function SingleClinic() {
         {singleClinic.notes && (
           <p className="Notes"> Notizen: {singleClinic.notes}</p>
         )}
-        {singleClinic.photos &&
-          singleClinic.photos.map((image) => {
-            return (
-              <Image
-                className="image"
-                cloudName="dlm4sfyjm"
-                publicId={image}
-                secure="true"
-              />
-            );
-          })}
+        {singleClinic.photos && (
+          <PhotoCarousel imagesArray={singleClinic.images} />
+        )}
         <SmallButton
           text="zurück"
           className="ButtonBack"
