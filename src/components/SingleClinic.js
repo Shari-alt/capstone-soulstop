@@ -5,7 +5,6 @@ import { useParams, useHistory } from "react-router-dom";
 import { ReactComponent as LocationIcon } from "../images/LocationIcon.svg";
 import SmallButton from "./SmallButton";
 import { ReactComponent as Checkmarked } from "../images/Checkmarked.svg";
-import { Image } from "cloudinary-react";
 import PhotoCarousel from "./PhotoCarousel";
 
 export default function SingleClinic() {
@@ -86,7 +85,9 @@ export default function SingleClinic() {
           <p className="Notes"> Notizen: {singleClinic.notes}</p>
         )}
         {singleClinic.photos && (
-          <PhotoCarousel imagesArray={singleClinic.images} />
+          <div className="Picture">
+            <PhotoCarousel name="photos" imagesArray={singleClinic.photos} />
+          </div>
         )}
         <SmallButton
           text="zurück"

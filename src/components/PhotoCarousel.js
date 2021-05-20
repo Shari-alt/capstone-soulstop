@@ -1,4 +1,4 @@
-import "/PhotoCarousel.css";
+import "./PhotoCarousel.css";
 import { BiChevronsRight } from "react-icons/bi";
 
 import { useState } from "react";

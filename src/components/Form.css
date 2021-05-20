@@ -214,12 +214,18 @@ select {
 
 .Picture {
   background-color: #e2ecf8;
-  height: auto;
-  width: 267px;
-  padding: 80px;
+  /* height: auto;
+  width: 267px; */
+  padding: 20px 10px 20px 10px;
   border-radius: 15px;
   margin-top: 18px;
   box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
+  width: 267px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
 }
 
 .PctureUpload {
