@@ -4,6 +4,22 @@ import { useState } from "react";
 import { ListItem } from "./ListItem";
 
 export default function CheckListForm({ title }) {
+    const [listItem, setlistItem] = useState([]);
+
+    function renderItems () {
+        const listItems = items.map((ListItem) => {
+            return (
+                <ListItem
+                name={ListData.items}
+                key= {ListData.items}
+                onClickToRemove={handleToRemove} /> 
+            )
+        })
+    }
+
+    function handleToRemove(item) {
+        const newItems = itemps.filter(())
+    }
   return (
     <div className="ChecklistField ">
       <div className="ChecklistForm">

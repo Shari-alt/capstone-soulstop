@@ -1,5 +1,11 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
 export default function ListItem({ name, onClickToRemove }) {
+  function removeItem() {
+    removeItemFromLocalStorage(itemId);
+    const newItems = getItemsFromLocalStorage();
+    setItems(newItems);
+  }
+
   return (
     <div className="ListItem">
       <span> {name} </span>
