@@ -8,7 +8,7 @@
 .App {
   display: grid;
   grid-template-columns: [width] 100vw;
-  grid-template-rows: [header] auto [main] auto [footer] 70px;
+  grid-template-rows: [header] auto [main] 90% [footer] 70px;
   background-image: url("./images/Background-picture.png");
   background-size: cover;
   width: 100vw;

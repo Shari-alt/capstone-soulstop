@@ -5,6 +5,7 @@ import { ReactComponent as Button } from "../images/Button.svg";
 import SmallButton from "./SmallButton";
 import "./Form.css";
 import { addItemToLocalStorage } from "../services/ClinicStorage";
+import UploadPhotos from "./UploadPhotos";
 
 export default function FormAddClinic() {
   const history = useHistory();
@@ -28,6 +29,8 @@ export default function FormAddClinic() {
   const [room, setRoom] = useState(false);
   const [link, setLink] = useState("");
   const [notes, setNotes] = useState("");
+  const [imageUploads, setImageUploads] = useState([]);
+  const [imgPreview, setImgPreview] = useState([]);
 
   function handleClinicName(event) {
     const { value } = event.target;
@@ -81,22 +84,45 @@ export default function FormAddClinic() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    addItemToLocalStorage({
-      id: clinicName.split(" ").join("-"),
-      name: clinicName,
-      place: place,
-      insurance: insurance,
-      therapy: therapy,
-      visitors: visitors,
-      children: children,
-      animals: animals,
-      room: room,
-      link: link,
-      notes: notes,
-      isSaved: false,
-    });
-    resetForm();
-    history.push("/list");
+    if (clinicName === "") {
+      alert("Bitte einen Namen angeben");
+    } else {
+      const fileListAsArray = Array.from(imageUploads);
+      const imagesPromises = fileListAsArray.map((imageUpload) => {
+        const formData = new FormData();
+
+        formData.append("file", imageUpload);
+        formData.append("upload_preset", "pzp0iaha");
+
+        return fetch("https://api.cloudinary.com/v1_1/dlm4sfyjm/image/upload", {
+          method: "PUT",
+          body: formData,
+        }).then((response) => response.json());
+      });
+
+      Promise.all(imagesPromises).then((imagesResults) => {
+        const imageURLs = imagesResults.map(
+          (imageResult) => imageResult.secure_url
+        );
+        addItemToLocalStorage({
+          id: clinicName.split(" ").join("-"),
+          name: clinicName,
+          place: place,
+          insurance: insurance,
+          therapy: therapy,
+          visitors: visitors,
+          children: children,
+          animals: animals,
+          room: room,
+          link: link,
+          notes: notes,
+          photos: imageURLs,
+          isSaved: false,
+        });
+        resetForm();
+        history.push("/list");
+      });
+    }
   }
 
   return (
@@ -292,7 +318,29 @@ export default function FormAddClinic() {
         </div>
 
         <div className="Picture">
-          <p className="PctureUpload"> Bilderupload</p>
+          <UploadPhotos
+            id="photo"
+            name="photo"
+            onChange={(e) => {
+              setImageUploads(e.target.files);
+              const imageArray = Array.from(e.target.files).map((file) =>
+                URL.createObjectURL(file)
+              );
+              setImgPreview([]);
+              setImgPreview((prevURL) => prevURL.concat(imageArray));
+            }}
+          />
+          {imgPreview
+            ? imgPreview.map((imgPreview) => {
+                return (
+                  <img
+                    className="imagePreview"
+                    src={imgPreview}
+                    alt="preview"
+                  />
+                );
+              })
+            : null}
         </div>
         <div className="Buttonliste">
           <span className="FormButton">
@@ -337,5 +385,7 @@ export default function FormAddClinic() {
     setRoom(false);
     setLink("");
     setNotes("");
+    setImageUploads("");
+    setImgPreview("");
   }
 }

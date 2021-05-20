@@ -78,7 +78,7 @@ select {
   border-radius: 15px;
   font-size: 1em;
   padding: 0.6em 1.4em 0.5em 4.5em;
-  background-color: ##e2ecf8;
+  background-color: #e2ecf8;
   appearance: none;
   display: block;
 }
@@ -214,12 +214,16 @@ select {
 
 .Picture {
   background-color: #e2ecf8;
-  height: 200px;
-  width: 267px;
-  padding: 80px;
+  padding: 20px 10px 20px 10px;
   border-radius: 15px;
   margin-top: 18px;
   box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
+  width: 267px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
 }
 
 .PctureUpload {
@@ -235,4 +239,8 @@ select {
   align-items: center;
   padding: 1px !important;
   margin: 18px;
+}
+
+.imagePreview {
+  height: 100px;
 }

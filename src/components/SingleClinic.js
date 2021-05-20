@@ -5,6 +5,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { ReactComponent as LocationIcon } from "../images/LocationIcon.svg";
 import SmallButton from "./SmallButton";
 import { ReactComponent as Checkmarked } from "../images/Checkmarked.svg";
+import PhotoCarousel from "./PhotoCarousel";
 
 export default function SingleClinic() {
   const [singleClinic, setSingleClinic] = useState();
@@ -38,7 +39,7 @@ export default function SingleClinic() {
   return singleClinic ? (
     <div className="Addfield" key={id}>
       <div className="SingleClinicView">
-        <h2>{singleClinic.name}</h2>
+        <h2 className="InputName">{singleClinic.name}</h2>
         {singleClinic.place && (
           <p className="InputPlace">
             <LocationIcon />
@@ -83,12 +84,14 @@ export default function SingleClinic() {
         {singleClinic.notes && (
           <p className="Notes"> Notizen: {singleClinic.notes}</p>
         )}
-
-        <SmallButton
-          text="zurück"
-          className="ButtonBack"
-          onClick={handleClickBack}
-        />
+        {singleClinic.photos && (
+          <div className="Picture">
+            <PhotoCarousel name="photos" imagesArray={singleClinic.photos} />
+          </div>
+        )}
+        <div className="ButtonBack">
+          <SmallButton text="zurück" onClick={handleClickBack} />
+        </div>
       </div>
     </div>
   ) : (
