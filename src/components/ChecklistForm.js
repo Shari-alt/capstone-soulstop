@@ -7,6 +7,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import {
   getItemsFromLocalStorage,
   addItemToLocalStorage,
+  removeItemFromLocalStorage,
 } from "../services/ListStorage";
 
 export default function CheckListForm() {
@@ -16,7 +17,6 @@ export default function CheckListForm() {
 
   useEffect(() => {
     const toDo = getItemsFromLocalStorage("ListData");
-    console.log(toDo);
     setListData(toDo);
   }, []);
 
@@ -34,12 +34,20 @@ export default function CheckListForm() {
   }
 
   function handleSubmit(event) {
-    event.preventDefault();
     addItemToLocalStorage({
       id: item.split(" ").join("-"),
       item: item,
       isDone: false,
     });
+    const toDo = getItemsFromLocalStorage("ListData");
+    setListData(toDo);
+    setModalIsOpen(false);
+  }
+
+  function removeToDo(id) {
+    removeItemFromLocalStorage(id);
+    const newList = getItemsFromLocalStorage();
+    setListData(newList);
   }
 
   function renderItems() {
@@ -47,7 +55,11 @@ export default function CheckListForm() {
     return listData.map((listData, index) => {
       return (
         <div>
-          <ListItem ListData={listData} />
+          <ListItem
+            removeToDo={removeToDo}
+            modalIsOpen={modalIsOpen}
+            ListData={listData}
+          />
         </div>
       );
     });
@@ -74,9 +86,8 @@ export default function CheckListForm() {
                 value={item}
                 onChange={handleItem}
               />
-
-              <button onClick={closeModal}>
-                <FaPlus onClick={handleSubmit} />
+              <button type="submit" onClick={handleSubmit}>
+                <FaPlus />
               </button>
             </form>
           </Modal>
