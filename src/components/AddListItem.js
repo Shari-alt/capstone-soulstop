@@ -24,14 +24,12 @@ export default function AddListItem() {
 
   function handleSubmit(event) {
     event.preventDefault();
-
     addItemToLocalStorage({
       id: item.split(" ").join("-"),
       item: item,
       isDone: false,
     });
   }
-
   return (
     <div>
       <input type="checkbox" checked={isDone} onChange={handleCheckbox} />

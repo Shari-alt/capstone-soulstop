@@ -21,3 +21,16 @@ export function removeItemFromLocalStorage(itemId) {
 
   localStorage.setItem("ListData", JSON.stringify(updatedList));
 }
+
+//Edit Single Item from Local Storage
+export function editItemFromLocalStorage(id, updatedItem) {
+  const myItems = getItemsFromLocalStorage();
+  const updatedItems = myItems.map((newItem) => {
+    if (newItem.id === id) {
+      return { ...newItem, ...updatedItem };
+    } else {
+      return newItem;
+    }
+  });
+  localStorage.setItem("ListData", JSON.stringify(updatedItems));
+}

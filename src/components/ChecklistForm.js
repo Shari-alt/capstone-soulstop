@@ -1,13 +1,24 @@
 import { FaPlus } from "react-icons/fa";
 import "./ChecklistForm.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ListItem from "./ListItem";
 import Modal from "react-modal";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import {
+  getItemsFromLocalStorage,
+  addItemToLocalStorage,
+} from "../services/ListStorage";
 
 export default function CheckListForm() {
+  const [listData, setListData] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [item, setItem] = useState("");
+
+  useEffect(() => {
+    const toDo = getItemsFromLocalStorage("ListData");
+    console.log(toDo);
+    setListData(toDo);
+  }, []);
 
   function openModal() {
     setModalIsOpen(true);
@@ -22,6 +33,26 @@ export default function CheckListForm() {
     setItem(value);
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    addItemToLocalStorage({
+      id: item.split(" ").join("-"),
+      item: item,
+      isDone: false,
+    });
+  }
+
+  function renderItems() {
+    console.log(listData);
+    return listData.map((listData, index) => {
+      return (
+        <div>
+          <ListItem ListData={listData} />
+        </div>
+      );
+    });
+  }
+
   return (
     <div className="ChecklistField ">
       <div className="ChecklistForm">
@@ -32,7 +63,6 @@ export default function CheckListForm() {
           </button>
           <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
             <button onClick={closeModal}>
-              {" "}
               <RiDeleteBin6Line />
             </button>
             <h3> To-Do hinzufügen: </h3>
@@ -44,16 +74,14 @@ export default function CheckListForm() {
                 value={item}
                 onChange={handleItem}
               />
+
               <button onClick={closeModal}>
-                {" "}
-                <FaPlus onClick={openModal} />
+                <FaPlus onClick={handleSubmit} />
               </button>
             </form>
           </Modal>
         </div>
-        <div className="Checklist_Items">
-          <ListItem />
-        </div>
+        <div className="Checklist_Items">{renderItems()}</div>
       </div>
     </div>
   );
