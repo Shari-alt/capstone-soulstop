@@ -3,30 +3,28 @@ import "./ChecklistForm.css";
 import { useState } from "react";
 import { ListItem } from "./ListItem";
 
-export default function CheckListForm({ title }) {
-    const [listItem, setlistItem] = useState([]);
+export default function CheckListForm({ ListData }) {
+  const [listItem, setlistItem] = useState([]);
+  const [enteredToDo, setEnteredToDo] = useState("");
 
-    function renderItems () {
-        const listItems = items.map((ListItem) => {
-            return (
-                <ListItem
-                name={ListData.items}
-                key= {ListData.items}
-                onClickToRemove={handleToRemove} /> 
-            )
-        })
-    }
+  //   function renderItems() {
+  //     const listItems = items.map((ListItem) => {
+  //       return <ListItem name={ListData.items} key={ListData.items} />;
+  //     });
+  //   }
 
-    function handleToRemove(item) {
-        const newItems = itemps.filter(())
-    }
+  function handleAddTodo(e) {
+    const enteredToDo = prompt("To-Do hinzufügen");
+    setEnteredToDo(enteredToDo);
+  }
+
   return (
     <div className="ChecklistField ">
       <div className="ChecklistForm">
         <div className="Checklist_Title">
-          <h2 className="Checklist_Name"> To-Do {title} </h2>
+          <h2 className="Checklist_Name"> To-Do </h2>
           <button className="PlusIcon">
-            <FaPlus />
+            <FaPlus onClick={handleAddTodo} />
           </button>
         </div>
         <div className="Checklist_Items">

@@ -1,19 +1,17 @@
 import { RiDeleteBin6Line } from "react-icons/ri";
-export default function ListItem({ name, onClickToRemove }) {
-  function removeItem() {
-    removeItemFromLocalStorage(itemId);
-    const newItems = getItemsFromLocalStorage();
-    setItems(newItems);
-  }
+import { removeItemFromLocalStorage } from "../services/ListStorage";
+import { useState } from "react-router-dom";
 
+export default function ListItem({ ListData }) {
+  const [isDone, setIsDone] = useState(false);
+  
+  function handleToRemove(item) {
+    const newItems = items.filter(())
+}
   return (
     <div className="ListItem">
-      <span> {name} </span>
-      <button
-        type="button"
-        className="removeItem"
-        onClick={() => onClickToRemove(name)}
-      >
+      <button />
+      <button type="button" className="removeItem" onClick={removeItem}>
         <RiDeleteBin6Line />
       </button>
     </div>
