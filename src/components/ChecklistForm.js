@@ -42,6 +42,7 @@ export default function CheckListForm() {
     const toDo = getItemsFromLocalStorage("ListData");
     setListData(toDo);
     setModalIsOpen(false);
+    resetForm();
   }
 
   function removeToDo(id) {
@@ -96,4 +97,7 @@ export default function CheckListForm() {
       </div>
     </div>
   );
+  function resetForm() {
+    setItem("");
+  }
 }
