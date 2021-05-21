@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ClinicList from "./components/List";
+import ClinicList from "./components/ClinicList";
 import Favourites from "./components/Favourites";
 import Checklist from "./components/Checklist";
 import Home from "./components/Home";
