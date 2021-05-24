@@ -321,6 +321,7 @@ export default function FormEditClinic() {
           <UploadPhotos
             id="photo"
             name="photo"
+            value={imageUploads}
             onChange={(e) => {
               setImageUploads(e.target.files);
               const imageArray = Array.from(e.target.files).map((file) =>
