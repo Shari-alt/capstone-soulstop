@@ -82,7 +82,7 @@ export default function CheckListForm() {
               <div className="ModalForm">
                 <h3 className="AddToDo"> To-Do hinzufügen: </h3>
                 <form className="AddToDoForm">
-                  <input
+                  <textarea
                     type="text"
                     name="item"
                     className="InputItem"
