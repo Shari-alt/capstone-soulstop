@@ -3,12 +3,12 @@ import "./ChecklistForm.css";
 import { useEffect, useState } from "react";
 import ListItem from "./ListItem";
 import Modal from "react-modal";
-import { RiDeleteBin6Line } from "react-icons/ri";
 import {
   getItemsFromLocalStorage,
   addItemToLocalStorage,
   removeItemFromLocalStorage,
 } from "../services/ListStorage";
+import SmallButton from "./SmallButton";
 
 export default function CheckListForm() {
   const [listData, setListData] = useState([]);
@@ -75,22 +75,31 @@ export default function CheckListForm() {
             <FaPlus onClick={openModal} />
           </button>
           <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
-            <button onClick={closeModal}>
-              <RiDeleteBin6Line />
+            <button onClick={closeModal} className="ButtonCancel">
+              <p className="CancelButton"> X </p>
             </button>
-            <h3> To-Do hinzufügen: </h3>
-            <form>
-              <input
-                type="text"
-                name="item"
-                id="id"
-                value={item}
-                onChange={handleItem}
-              />
-              <button type="submit" onClick={handleSubmit}>
-                <FaPlus />
-              </button>
-            </form>
+            <div className="ModalToDo">
+              <div className="ModalForm">
+                <h3 className="AddToDo"> To-Do hinzufügen: </h3>
+                <form className="AddToDoForm">
+                  <input
+                    type="text"
+                    name="item"
+                    className="InputItem"
+                    id="id"
+                    value={item}
+                    onChange={handleItem}
+                  />
+                  <button
+                    type="submit"
+                    onClick={handleSubmit}
+                    className="AddInput"
+                  >
+                    <SmallButton text="+" />
+                  </button>
+                </form>
+              </div>
+            </div>
           </Modal>
         </div>
         <div className="Checklist_Items">{renderItems()}</div>

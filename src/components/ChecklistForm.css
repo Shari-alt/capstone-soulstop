@@ -30,3 +30,48 @@
 .PlusIcon {
   height: 40px;
 }
+.CancelButton {
+  background-color: black;
+  color: whitesmoke;
+  width: 20px;
+  border: rgba(226, 221, 221, 0.3);
+  border-radius: 15px;
+}
+
+.ModalForm {
+  justify-content: center;
+}
+
+.ModalToDo {
+  display: flex;
+  height: 100px;
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  justify-content: center;
+  display: flex;
+}
+
+.ButtonCancel {
+  position: relative;
+  height: 1em;
+}
+
+.AddToDo {
+  margin: 20px;
+}
+
+.InputItem {
+  height: 100px;
+  background-color: #e2ecf8;
+  border: none;
+}
+
+.AddToDoForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddInput {
+  margin: 20px;
+}
