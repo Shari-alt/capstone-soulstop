@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import PhotoCarousel from "./PhotoCarousel";
 import {
   getSingleClinicFromLocalStorage,
   editSingleClinicFromLocalStorage,
@@ -11,6 +12,7 @@ import SmallButton from "./SmallButton";
 import { ReactComponent as Button } from "../images/Button.svg";
 import Linkify from "react-linkify";
 import "./Form.css";
+import UploadPhotos from "./UploadPhotos";
 
 export default function FormEditClinic() {
   const history = useHistory();
@@ -36,6 +38,8 @@ export default function FormEditClinic() {
   const [link, setLink] = useState("");
   const [notes, setNotes] = useState("");
   const { id } = useParams();
+  const [imageUploads, setImageUploads] = useState([]);
+  const [imgPreview, setImgPreview] = useState([]);
 
   function handleOnSubmit(e) {
     e.preventDefault();
@@ -308,8 +312,36 @@ export default function FormEditClinic() {
           />
         </div>
 
+        {singleClinic.photos && (
+          <div className="Picture">
+            <PhotoCarousel name="photos" imagesArray={singleClinic.photos} />
+          </div>
+        )}
         <div className="Picture">
-          <p className="PctureUpload"> Bilderupload</p>
+          <UploadPhotos
+            id="photo"
+            name="photo"
+            value={imageUploads}
+            onChange={(e) => {
+              setImageUploads(e.target.files);
+              const imageArray = Array.from(e.target.files).map((file) =>
+                URL.createObjectURL(file)
+              );
+              setImgPreview([]);
+              setImgPreview((prevURL) => prevURL.concat(imageArray));
+            }}
+          />
+          {imgPreview
+            ? imgPreview.map((imgPreview) => {
+                return (
+                  <img
+                    className="imagePreview"
+                    src={imgPreview}
+                    alt="preview"
+                  />
+                );
+              })
+            : null}
         </div>
         <div className="Buttonliste">
           <span className="FormButton">
