@@ -8,7 +8,11 @@ export default function ClinicInspiration() {
   return (
     <div className="Linkpage">
       <div className="LinkCard">
-        <a href="https://www.klinikbewertungen.de/">
+        <a
+          href="https://www.klinikbewertungen.de/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img
             className="LinkImg"
             src={Klinikbewertungen}
@@ -17,17 +21,29 @@ export default function ClinicInspiration() {
         </a>
       </div>
       <div className="LinkCard">
-        <a href="https://klinikradar.de/depression/kliniken/">
+        <a
+          href="https://klinikradar.de/depression/kliniken/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img className="LinkImg" src={Klinikradar} alt="Klinikradar" />
         </a>
       </div>
       <div className="LinkCard">
-        <a href="https://www.weisse-liste.de/">
+        <a
+          href="https://www.weisse-liste.de/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img className="LinkImg" src={WeisseListe} alt="Weiße Liste" />
         </a>
       </div>
       <div className="LinkCard">
-        <a href="https://www.privatklinik-portal.de/">
+        <a
+          href="https://www.privatklinik-portal.de/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img className="LinkImg" src={Privatklinik} alt="Privatklinik" />
         </a>
       </div>
