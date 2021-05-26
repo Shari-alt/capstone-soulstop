@@ -12,9 +12,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 1em;
-  margin-top: 30%;
+  margin-top: 40%;
 }
 
 .Logo {
   margin-top: 3em;
+  min-height: 144px;
+  min-width: 269px;
 }

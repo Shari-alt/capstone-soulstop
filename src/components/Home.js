@@ -18,7 +18,7 @@ export default function Home() {
           <BigButton text="Checklist" />
         </NavLink>
         <NavLink to="/tips">
-          <BigButton text="Tips" />
+          <BigButton text="Tipps" />
         </NavLink>
       </div>
     </div>

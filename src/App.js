@@ -50,7 +50,7 @@ function App() {
             <Route path="/singleclinic/:id">
               <SingleClinic />
             </Route>
-            <Route path="/tipps">
+            <Route path="/tips">
               <OrganizingList />
             </Route>
             <Route path="/">
@@ -67,7 +67,6 @@ function App() {
               "/checklist",
               "/add",
               "/singleclinic/:id",
-              "tipps",
             ]}
           >
             <Navigation />

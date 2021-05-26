@@ -14,7 +14,7 @@ export default function Navigation() {
       <NavLink to="/favourites">
         <FavouriteIcon />
       </NavLink>
-      <NavLink to="/tipps">
+      <NavLink to="/tips">
         <AiOutlineBulb className="Lightbulb" />
       </NavLink>
       <NavLink to="/checklist">
