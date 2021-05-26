@@ -18,7 +18,7 @@
   padding-bottom: 40px;
   margin-top: 20px;
   margin-bottom: 50px;
-  height: 70em;
+  min-height: 30em;
   width: 80%;
 }
 
