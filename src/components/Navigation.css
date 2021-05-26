@@ -1,6 +1,6 @@
 .Navigation {
   grid-row: 3 / 4;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
