@@ -10,10 +10,10 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 1em;
   margin-top: 30%;
 }
 
 .Logo {
-  margin-top: auto;
+  margin-top: 20px;
 }
