@@ -9,6 +9,7 @@ import FormAddClinic from "./components/FormAddClinic";
 import Navigation from "./components/Navigation";
 import SingleClinic from "./components/SingleClinic";
 import FormEditClinic from "./components/FormEditClinic";
+import OrganizingList from "./components/ListforOrganizing";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/checklist">
             <Header text="Checklist" />
+          </Route>
+          <Route path="/tipps">
+            <Header text="Tipps" />
           </Route>
           <Route path="/"></Route>
         </Switch>
@@ -47,6 +51,9 @@ function App() {
             <Route path="/singleclinic/:id">
               <SingleClinic />
             </Route>
+            <Route path="/tipps">
+              <OrganizingList />
+            </Route>
             <Route path="/">
               <Home />
             </Route>
@@ -61,6 +68,7 @@ function App() {
               "/checklist",
               "/add",
               "/singleclinic/:id",
+              "tipps",
             ]}
           >
             <Navigation />
