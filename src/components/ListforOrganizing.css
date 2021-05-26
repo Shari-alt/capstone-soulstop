@@ -1,6 +1,7 @@
 .SectionTipps {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .TippsField {
@@ -13,14 +14,18 @@
   border-radius: 15px;
   overflow-y: scroll;
   align-self: center;
-  padding: 15px 10px 15px 10px;
+  padding: 20px 10px 15px 10px;
   height: 70vh;
   width: 80%;
 }
 
-.TippsSection {
-  background-color: #ffffff;
+.first {
+  margin-top: 350px;
+}
 
+.TippsSection {
+  display: flex;
+  background-color: #ffffff;
   padding: 10px 8px 10px 12px;
   text-align: center;
   box-shadow: 5px 5px 15px 6px rgba(226, 221, 221, 0.9) inset;
@@ -33,9 +38,10 @@
   height: 50px;
   padding-top: 15px;
 }
+
 .ListItem {
   margin-top: 10px;
   font-size: 13px;
   text-align: left;
-  padding: 0px 10px 0px 10px;
+  padding: 0px 0px 0px 20px;
 }
