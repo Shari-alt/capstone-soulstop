@@ -25,7 +25,7 @@ function App() {
           <Route path="/checklist">
             <Header text="Checklist" />
           </Route>
-          <Route path="/tipps">
+          <Route path="/tips">
             <Header text="Tipps" />
           </Route>
           <Route path="/"></Route>
