@@ -5,11 +5,13 @@ import { useEffect, useState } from "react";
 import { getItemsFromLocalStorage } from "../services/ClinicStorage";
 import ClinicCard from "./ClinicCard";
 import Searchbar from "./Searchbar";
+import Filter from "./Filter";
 
 function ClinicList() {
   const [clinicData, setClinicData] = useState([]);
   const [nameFilter, setNameFilter] = useState("");
   const [showForm, setShowForm] = useState(false);
+  const [statusFilter, setStatusFilter] = useState("");
 
   useEffect(() => {
     const clinic = getItemsFromLocalStorage();
@@ -22,6 +24,16 @@ function ClinicList() {
 
   function handleOnNameFilter(filterNameValue) {
     setNameFilter(filterNameValue);
+  }
+
+  function onInsuranceFilter(FilterValue) {
+    if (FilterValue === "privat") {
+      setStatusFilter("privat");
+    } else if (FilterValue === "public") {
+      setStatusFilter("public");
+    } else if (FilterValue === "both") {
+      setStatusFilter("both");
+    }
   }
 
   function renderClinics() {
@@ -54,7 +66,10 @@ function ClinicList() {
         <NavLink to="/add">
           <SmallButton text="Hinzufügen" />
         </NavLink>
-        <SmallButton text="Filter" />
+        <div className="Filter">
+          <SmallButton text="Filter" />
+          <Filter onInsuranceFilter={onInsuranceFilter} />
+        </div>
       </div>
       {renderClinics()}
     </div>
