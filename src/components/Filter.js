@@ -1,9 +1,16 @@
-export default function Filter({ onInsuranceFilter }) {
+export default function Filter({ onInsuranceFilter, onTherapyFilter }) {
   function handleOnInsurance(event) {
     event.preventDefault();
     const filterInsurance = event.target.value;
     onInsuranceFilter(filterInsurance);
   }
+
+  //   function handleOnTherapy(event) {
+  //     event.preventDefault();
+  //     const filterTherapy = event.target.checked;
+  //     onTherapyFilter(filterTherapy);
+  //   }
+
   return (
     <form>
       <div className="InsuranceSelect">
@@ -11,11 +18,14 @@ export default function Filter({ onInsuranceFilter }) {
         <label for="Insurance"> </label>
         <div className="SelectMenu">
           <select onClick={handleOnInsurance} name="insurance">
+            <option value="both"> beide</option>
             <option value="privat"> Privatversicherung</option>
             <option value="public"> Gesetzliche Versicherung</option>
-            <option value="both"> beide</option>
           </select>
         </div>
+      </div>
+      <div className="Therapy">
+        <p className="FormTitle"> Therapie</p>
       </div>
     </form>
   );

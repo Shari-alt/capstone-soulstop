@@ -11,7 +11,9 @@ function ClinicList() {
   const [clinicData, setClinicData] = useState([]);
   const [nameFilter, setNameFilter] = useState("");
   const [showForm, setShowForm] = useState(false);
-  const [statusFilter, setStatusFilter] = useState("");
+  const [showFilter, setShowFilter] = useState(false);
+  const [insuranceFilter, setInsuranceFilter] = useState("beide");
+  const [therapyFilter, setTherapyFilter] = useState("false");
 
   useEffect(() => {
     const clinic = getItemsFromLocalStorage();
@@ -22,19 +24,35 @@ function ClinicList() {
     setShowForm((prevState) => !prevState);
   }
 
+  function handleToggleFilter() {
+    setShowFilter((prevState) => !prevState);
+  }
+
   function handleOnNameFilter(filterNameValue) {
     setNameFilter(filterNameValue);
   }
 
   function onInsuranceFilter(FilterValue) {
     if (FilterValue === "privat") {
-      setStatusFilter("privat");
+      setInsuranceFilter("privat");
     } else if (FilterValue === "public") {
-      setStatusFilter("public");
+      setInsuranceFilter("public");
     } else if (FilterValue === "both") {
-      setStatusFilter("both");
+      setInsuranceFilter("both");
     }
   }
+
+  // function onTherapyFilter(FilterTherapy) {
+  //   if (FilterTherapy.Kunst === true) {
+  //     setTherapyFilter({ Kunst: checked });
+  //   }
+  //   if (FilterTherapy.Sport === true) {
+  //     setTherapyFilter({ Sport: target.checked });
+  //   }
+  //   if (FilterTherapy.Gruppen === true) {
+  //     setTherapyFilter({ Gruppen: target.checked });
+  //   }
+  // }
 
   function renderClinics() {
     const filterClinics = clinicData.filter((clinic) => {
@@ -43,6 +61,10 @@ function ClinicList() {
           clinic.name.toLowerCase().includes(nameFilter.toLowerCase()) ||
           clinic.place.toLowerCase().includes(nameFilter.toLowerCase()) ||
           clinic.notes.toLowerCase().includes(nameFilter.toLowerCase())
+        );
+      } else if (insuranceFilter) {
+        return (
+          clinic.insurance === insuranceFilter || insuranceFilter === "beide"
         );
       } else {
         return true;
@@ -67,8 +89,8 @@ function ClinicList() {
           <SmallButton text="Hinzufügen" />
         </NavLink>
         <div className="Filter">
-          <SmallButton text="Filter" />
-          <Filter onInsuranceFilter={onInsuranceFilter} />
+          <SmallButton text="Filter" onClick={handleToggleFilter} />
+          {showFilter ? <Filter onInsuranceFilter={onInsuranceFilter} /> : null}
         </div>
       </div>
       {renderClinics()}
