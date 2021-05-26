@@ -30,7 +30,6 @@ function App() {
           </Route>
           <Route path="/"></Route>
         </Switch>
-
         <main className="Main">
           <Switch>
             <Route path="/list">
