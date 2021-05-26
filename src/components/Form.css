@@ -219,16 +219,12 @@ select {
   margin-top: 18px;
   box-shadow: 8px 8px 8px #babdc0, inset -8px -8px 8px #e2ecf8;
   width: 267px;
-  height: 350px;
-  display: flex;
-  align-items: center;
-
-  justify-content: center;
+  height: auto;
 }
 
-.PctureUpload {
-  border: 4px dotted black;
-  padding: 5px;
+.imagePreview {
+  height: 100%;
+  width: 100%;
 }
 
 .FormButton {
@@ -241,6 +237,8 @@ select {
   margin: 18px;
 }
 
-.imagePreview {
-  height: 100px;
+.upload {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }

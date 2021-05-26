@@ -321,6 +321,7 @@ export default function FormAddClinic() {
           <UploadPhotos
             id="photo"
             name="photo"
+            className="uploadimage"
             onChange={(e) => {
               setImageUploads(e.target.files);
               const imageArray = Array.from(e.target.files).map((file) =>
@@ -330,17 +331,19 @@ export default function FormAddClinic() {
               setImgPreview((prevURL) => prevURL.concat(imageArray));
             }}
           />
-          {imgPreview
-            ? imgPreview.map((imgPreview) => {
-                return (
-                  <img
-                    className="imagePreview"
-                    src={imgPreview}
-                    alt="preview"
-                  />
-                );
-              })
-            : null}
+          <div className="ImagePreviewSection">
+            {imgPreview
+              ? imgPreview.map((imgPreview) => {
+                  return (
+                    <img
+                      className="imagePreview"
+                      src={imgPreview}
+                      alt="preview"
+                    />
+                  );
+                })
+              : null}
+          </div>
         </div>
         <div className="Buttonliste">
           <span className="FormButton">

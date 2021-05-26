@@ -25,12 +25,11 @@ function App() {
           <Route path="/checklist">
             <Header text="Checklist" />
           </Route>
-          <Route path="/tipps">
+          <Route path="/tips">
             <Header text="Tipps" />
           </Route>
           <Route path="/"></Route>
         </Switch>
-
         <main className="Main">
           <Switch>
             <Route path="/list">
@@ -51,7 +50,7 @@ function App() {
             <Route path="/singleclinic/:id">
               <SingleClinic />
             </Route>
-            <Route path="/tipps">
+            <Route path="/tips">
               <OrganizingList />
             </Route>
             <Route path="/">
@@ -68,7 +67,6 @@ function App() {
               "/checklist",
               "/add",
               "/singleclinic/:id",
-              "tipps",
             ]}
           >
             <Navigation />

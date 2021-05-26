@@ -2,13 +2,20 @@ import ChecklistItem from "./ChecklistItem";
 import Navigation from "./Navigation";
 import ClinicInspiration from "./ClinicInspiration";
 import "./ListforOrganizing.css";
+import { useState } from "react";
 
 export default function OrganizingList() {
+  const [isClicked, setIsClicked] = useState(false);
+
+  function handleClick() {
+    setIsClicked(!isClicked);
+  }
+
   return (
     <div className="SectionTipps">
       <div className="TippsField">
-        <div className="TippsSection">
-          <details>
+        <div className={`TippsSection ${isClicked ? "first" : ""}`}>
+          <details onClick={handleClick} className="ListDetailsSection">
             <summary className="TippsTitle">Tipps für die Entscheidung</summary>
             <ChecklistItem name="Wie sieht ein typischer Behandlungsplan aus?" />
             <ChecklistItem name="Ist die Klinik auf meine Erkrakung spezialisiert?" />

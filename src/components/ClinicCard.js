@@ -24,7 +24,7 @@ export default function ClinicCard({ clinicData }) {
       <div className="ClinicCard">
         <div className="LinkSingleView">
           <Link to={`/singleclinic/${clinicData.id}`}>
-            {clinicData && clinicData.photos.length > 0 ? (
+            {clinicData.photos && clinicData.photos.length > 0 ? (
               <Image
                 className="ClinicPicture"
                 cloudName="dlm4sfyjm"

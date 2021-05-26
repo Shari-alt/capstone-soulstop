@@ -1,5 +1,6 @@
 .Navigation {
-  position: absolute;
+  grid-row: 3 / 4;
+  position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
@@ -11,4 +12,9 @@
   align-items: center;
   border-radius: 10px 10px 5px 5px;
   margin-top: 10px;
+}
+
+.Lightbulb {
+  width: 60px;
+  height: 50px;
 }
