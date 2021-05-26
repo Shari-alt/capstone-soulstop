@@ -1,4 +1,5 @@
 .Navigation {
+  grid-row: 3 / 4;
   position: absolute;
   left: 0;
   right: 0;
