@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getItemsFromLocalStorage } from "../services/ClinicStorage";
 import ClinicCard from "./ClinicCard";
 import Searchbar from "./Searchbar";
+import { BsSearch } from "react-icons/bs";
 
 function ClinicList() {
   const [clinicData, setClinicData] = useState([]);
@@ -48,13 +49,14 @@ function ClinicList() {
     <div className="Listlayout">
       <div className="SmallButtons">
         <div className="Searchbar">
-          <SmallButton text="Suche" onClick={handleToggleForm} />
+          <SmallButton text={<BsSearch />} onClick={handleToggleForm} />
           {showForm ? <Searchbar onNameChange={handleOnNameFilter} /> : null}
         </div>
-        <NavLink to="/add">
-          <SmallButton text="Hinzufügen" />
-        </NavLink>
-        <SmallButton text="Filter" />
+        <div>
+          <NavLink to="/add">
+            <SmallButton className="AddButton" text="Hinzufügen" />
+          </NavLink>
+        </div>
       </div>
       {renderClinics()}
     </div>

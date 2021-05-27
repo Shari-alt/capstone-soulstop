@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getItemsFromLocalStorage } from "../services/ClinicStorage";
 import Searchbar from "./Searchbar";
+import { BsSearch } from "react-icons/bs";
 
 export default function Favourites() {
   const [clinicData, setClinicData] = useState([]);
@@ -51,9 +52,8 @@ export default function Favourites() {
   return (
     <div className="Listlayout">
       <div className="SmallButtons">
-        <SmallButton text="Suche" onClick={handleToggleForm} />
+        <SmallButton text={<BsSearch />} onClick={handleToggleForm} />
         <SmallButton text="Hinzufügen" />
-        <SmallButton text="Filter" />
       </div>
       {showSearch ? <Searchbar onNameChange={handleFilterChange} /> : null}
       {renderFavourites()}
